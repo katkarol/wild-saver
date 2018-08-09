@@ -10,7 +10,7 @@ namespace WebAppLayer.Models
         public int ID { get; set; }
         public DateTime DtaHrDenuncia { get; set; }
         public Endereco Local { get; set; }
-        public string Animal { get; set; }
+        public Animal Animal { get; set; }
         public string DescricaoAnimal { get; set; }
     }
 }
