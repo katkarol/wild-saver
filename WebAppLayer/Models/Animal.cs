@@ -14,6 +14,6 @@ namespace WebAppLayer.Models
         public Genero Genero { get; set; }
         public string Descricao { get; set; }
         public Endereco LocalPredominante { get; set; }
-
+        public string NomePopular { get; set; }
     }
 }

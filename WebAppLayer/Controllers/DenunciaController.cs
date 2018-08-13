@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebAppLayer.Models;
 
 namespace WebAppLayer.Controllers
 {
@@ -13,5 +14,17 @@ namespace WebAppLayer.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Cadastrar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Cadastrar(Denuncia denuncia)
+        {
+            return View();
+        } 
     }
 }
