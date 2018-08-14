@@ -11,6 +11,7 @@ namespace WebAppLayer.Controllers
         // GET: Usuario
         public ActionResult Index()
         {
+           
             return View();
         }
     }
