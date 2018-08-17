@@ -8,7 +8,8 @@ namespace WebAppLayer.Models
     public class Denuncia
     {
         public int ID { get; set; }
-        public DateTime DtaHrDenuncia { get; set; }
+        public DateTime DataHoraDenuncia { get; set; }
+        public DateTime DataDaDenuncia { get; set; }
         public Endereco Local { get; set; }
         public Animal Animal { get; set; }
         public string DescricaoAnimal { get; set; }

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using WebAppLayer.Models;
@@ -9,7 +9,24 @@ namespace WebAppLayer.DAL
 {
     public class WildSaverContext : DbContext
     {
-        internal DbSet<Denuncia> Denuncias { get; set; }
-        internal DbSet<Usuario> Usuarios { get; set; }
-}
+        internal DbSet<Filo> Filos { get; set; }
+
+
+
+        public WildSaverContext(DbContextOptions<WildSaverContext> options) : base(options)
+        { }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder
+                    .UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Initial Catalog=WildSaverDB; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            }
+        }
+
+        public WildSaverContext()
+        {
+        }
+    }
 }
