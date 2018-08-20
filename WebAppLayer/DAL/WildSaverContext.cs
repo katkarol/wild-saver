@@ -13,7 +13,7 @@ namespace WebAppLayer.DAL
         internal DbSet<Classe> Classes { get; set; }
         internal DbSet<Ordem> Ordens { get; set; }
         internal DbSet<Familia> Familias { get; set; }
-
+        internal DbSet<Genero> Generos { get; set; }
 
 
         public WildSaverContext(DbContextOptions<WildSaverContext> options) : base(options)
