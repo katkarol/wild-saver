@@ -10,6 +10,9 @@ namespace WebAppLayer.DAL
     public class WildSaverContext : DbContext
     {
         internal DbSet<Filo> Filos { get; set; }
+        internal DbSet<Classe> Classes { get; set; }
+        internal DbSet<Ordem> Ordens { get; set; }
+        internal DbSet<Familia> Familias { get; set; }
 
 
 

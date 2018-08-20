@@ -6,22 +6,22 @@ using WebAppLayer.Models;
 
 namespace WebAppLayer.DAL
 {
-    public class FiloDAL : IDisposable
+    public class FamiliaDAL
     {
-        public FiloDAL()
+        public FamiliaDAL()
         {
             contexto = new WildSaverContext();
         }
         private WildSaverContext contexto;
 
 
-        public void Adicionar(Filo f)
+        public void Adicionar(Familia f)
         {
-            contexto.Filos.Add(f);
+            contexto.Familias.Add(f);
             contexto.SaveChanges();
         }
 
-        public void Atualizar(Filo f)
+        public void Atualizar(Familia f)
         {
             contexto.Update(f);
             contexto.SaveChanges();
@@ -33,17 +33,16 @@ namespace WebAppLayer.DAL
             contexto.Dispose();
         }
 
-        public IList<Filo> LerProdutos()
+        public IList<Familia> LerProdutos()
         {
-            return contexto.Filos.ToList();
+            return contexto.Familias.ToList();
         }
 
-        public void Remover(Filo f)
+        public void Remover(Familia f)
         {
-            contexto.Filos.Remove(f);
+            contexto.Familias.Remove(f);
             contexto.SaveChanges();
 
         }
-
     }
 }
