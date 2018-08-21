@@ -14,10 +14,21 @@ namespace WebAppLayer.DAL
         internal DbSet<Ordem> Ordens { get; set; }
         internal DbSet<Familia> Familias { get; set; }
         internal DbSet<Genero> Generos { get; set; }
+        internal DbSet<Endereco> Enderecos { get; set; }
 
 
         public WildSaverContext(DbContextOptions<WildSaverContext> options) : base(options)
         { }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Pessoa>().ToTable("Pessoas");
+
+            modelBuilder.Entity<Pessoa>().Property<int>("UsuarioID");
+
+            modelBuilder.Entity<Pessoa>().HasKey("UsuarioID");
+            base.OnModelCreating(modelBuilder);
+
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
