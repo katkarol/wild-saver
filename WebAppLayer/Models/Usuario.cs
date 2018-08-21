@@ -11,13 +11,7 @@ namespace WebAppLayer.Models
         public string Login { get; set; }
         public string Senha { get; set; }
         public Pessoa PessoaUsuaria { get; set; }
-        public PapelUsuario TipoPapel { get; set; }
     }
 
-   public enum PapelUsuario
-    {
-        Admin,
-        Funcionário,
-        Usuário
-    }
+  
 }
