@@ -10,6 +10,7 @@ namespace WebAppLayer.Models
         public int ID { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }
+        public Pessoa PessoaUsuaria { get; set; }
         public PapelUsuario TipoPapel { get; set; }
     }
 

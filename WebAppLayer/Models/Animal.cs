@@ -7,6 +7,7 @@ namespace WebAppLayer.Models
 {
     public class Animal
     {
+        public int ID { get; set; }
         public Filo Filo { get; set; }
         public Classe Classe { get; set; }
         public Ordem Ordem { get; set; }
