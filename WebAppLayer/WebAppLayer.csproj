@@ -325,6 +325,8 @@
     <Content Include="Views\Denuncia\Cadastrar.cshtml" />
     <Content Include="Views\Home\Sobre.cshtml" />
     <Content Include="Views\Home\Contato.cshtml" />
+    <Content Include="Views\Usuario\Login.cshtml" />
+    <Content Include="Views\Usuario\CreateAccont.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -334,7 +336,6 @@
     <Folder Include="Views\Filo\" />
     <Folder Include="Views\Genero\" />
     <Folder Include="Views\Ordem\" />
-    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
