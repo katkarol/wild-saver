@@ -13,5 +13,6 @@ namespace WebAppLayer.Models
         public Endereco Local { get; set; }
         public Animal Animal { get; set; }
         public string DescricaoAnimal { get; set; }
+        public bool Anonimo { get; set; }
     }
 }
