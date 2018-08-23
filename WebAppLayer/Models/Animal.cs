@@ -8,13 +8,9 @@ namespace WebAppLayer.Models
     public class Animal
     {
         public int ID { get; set; }
-        public Filo Filo { get; set; }
-        public Classe Classe { get; set; }
-        public Ordem Ordem { get; set; }
-        public Familia Familia { get; set; }
         public Genero Genero { get; set; }
         public string Descricao { get; set; }
-        public Endereco LocalPredominante { get; set; }
+        public Endereco Endereco { get; set; }
         public string NomePopular { get; set; }
     }
 }
