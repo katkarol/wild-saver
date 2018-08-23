@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebAppLayer.Models.Enums;
 
 namespace WebAppLayer.Models
 {
@@ -11,7 +12,9 @@ namespace WebAppLayer.Models
         public string Login { get; set; }
         public string Senha { get; set; }
         public Pessoa PessoaUsuaria { get; set; }
+        public PapelUsuario PapelUsuario { get; set; }
+
     }
 
-  
+
 }

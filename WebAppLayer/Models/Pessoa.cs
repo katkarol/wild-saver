@@ -9,10 +9,9 @@ namespace WebAppLayer.Models
     public class Pessoa
     {
 
-        public string NomeCompleto { get; set; }
+        public string Nome { get; set; }
         public DateTime DataNascimento { get; set; }
         public Endereco Endereco { get; set; }
-        public PapelUsuario PapelUsuario { get; set; }
         public string CPF { get; set; }
 
 
