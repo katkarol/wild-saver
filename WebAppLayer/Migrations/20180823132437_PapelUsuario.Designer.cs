@@ -10,8 +10,8 @@ using WebAppLayer.DAL;
 namespace WebAppLayer.Migrations
 {
     [DbContext(typeof(WildSaverContext))]
-    [Migration("20180822123428_Usuarios")]
-    partial class Usuarios
+    [Migration("20180823132437_PapelUsuario")]
+    partial class PapelUsuario
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -147,8 +147,6 @@ namespace WebAppLayer.Migrations
 
                     b.Property<string>("Nome");
 
-                    b.Property<int>("PapelUsuario");
-
                     b.HasKey("UsuarioID");
 
                     b.HasIndex("EnderecoID");
@@ -163,6 +161,8 @@ namespace WebAppLayer.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Login");
+
+                    b.Property<int>("PapelUsuario");
 
                     b.Property<string>("Senha");
 

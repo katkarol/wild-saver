@@ -143,9 +143,7 @@ namespace WebAppLayer.Migrations
 
                     b.Property<int?>("EnderecoID");
 
-                    b.Property<string>("NomeCompleto");
-
-                    b.Property<int>("PapelUsuario");
+                    b.Property<string>("Nome");
 
                     b.HasKey("UsuarioID");
 
@@ -161,6 +159,8 @@ namespace WebAppLayer.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Login");
+
+                    b.Property<int>("PapelUsuario");
 
                     b.Property<string>("Senha");
 
