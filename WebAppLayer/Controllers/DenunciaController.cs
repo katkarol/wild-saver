@@ -15,16 +15,16 @@ namespace WebAppLayer.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult Cadastrar()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Cadastrar(Denuncia denuncia)
-        {
-            return View();
-        } 
+        //[HttpGet]
+        //public ActionResult Cadastrar()
+        //{
+        //    return View();
+        //}
+        //
+        //[HttpPost]
+        //public ActionResult Cadastrar(Denuncia denuncia)
+        //{
+        //    return View();
+        //} 
     }
 }

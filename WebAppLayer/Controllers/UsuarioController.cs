@@ -19,7 +19,7 @@ namespace WebAppLayer.Controllers
 
             return View();
         }
-        public ActionResult CreateAccont()
+        public ActionResult CriarConta()
         {
 
             return View();
