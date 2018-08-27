@@ -335,6 +335,7 @@
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Usuario\CriarConta.cshtml" />
     <Content Include="Views\Ordem\Index.cshtml" />
+    <Content Include="Views\Usuario\CadastarFuncionario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
