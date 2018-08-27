@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +45,15 @@ namespace WebAppLayer.DAL
             contexto.Usuarios.Remove(u);
             contexto.SaveChanges();
 
+        }
+        public Usuario BuscarUsuarioSenha(Usuario u)
+        {
+
+            using (contexto)
+            {
+               return (Usuario) contexto.Usuarios.Where(usuario => usuario.Senha == u.Senha).Where(usuario => usuario.Login == u.Login);
+                
+            }
         }
     }
 }
