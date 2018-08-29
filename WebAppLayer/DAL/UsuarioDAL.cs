@@ -51,8 +51,8 @@ namespace WebAppLayer.DAL
 
             using (contexto)
             {
-               return (Usuario) contexto.Usuarios.Where(usuario => usuario.Senha == u.Senha).Where(usuario => usuario.Login == u.Login);
-                
+                return contexto.Usuarios.FirstOrDefault(usuario => usuario.Login == u.Login && usuario.Senha == u.Senha);
+
             }
         }
     }
