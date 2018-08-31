@@ -2,8 +2,6 @@
 
 botao.addEventListener("click", function (event) {
     event.preventDefault();
-    alert("Oi");
-    Console.log("12");
 
     ValidarSenha();
     var form = document.querySelector(".form-horizontal")
@@ -43,7 +41,7 @@ function ObtemUsuarioFormulario(form) {
     return usuario;
 }
 function UsuarioValido(usuario) {
-    var erros = document.querySelectorAll(".text-danger");
+    var erros = document.querySelectorAll(".field-validation-valid text-danger");
     if (!NomeValido(usuario.nome)) {
         erro[0] = "Nome inváido";
     }
