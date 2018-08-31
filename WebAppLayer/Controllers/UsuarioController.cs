@@ -25,8 +25,8 @@ namespace WebAppLayer.Controllers
         [HttpPost]
         public ActionResult Login(Usuario u)
         {
-
-            return RedirectToAction("Index","Home");
+            return View();
+           // return RedirectToAction("Index","Home");
         }
         [HttpGet]
         public ActionResult CriarConta()
@@ -38,7 +38,8 @@ namespace WebAppLayer.Controllers
         public ActionResult CriarConta(Usuario usuario)
         {
             usuario.PapelUsuario = PapelUsuario.Usuario;
-            return RedirectToAction("Index", "Home");
+            return View();
+            // return RedirectToAction("Index","Home");
         }
         [HttpGet]
         public ActionResult CadastarFuncionario()
