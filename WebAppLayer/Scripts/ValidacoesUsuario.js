@@ -1,4 +1,5 @@
-﻿﻿var botao = document.querySelector("#Botao");
+﻿
+var botao = document.querySelector("#Botao");
 
 botao.addEventListener("click", function (event) {
     event.preventDefault();
