@@ -6,43 +6,34 @@ botao.addEventListener("click", function (event) {
 
     ValidarSenha();
     var form = document.querySelector(".form-horizontal")
+    console.log(form);
     var usuario = ObtemUsuarioFormulario(form);
     if (!UsuarioValido(usuario)) {
         return;
     }
 });
 function ValidarSenha() {
-    var Senha = document.querySelector("#txtSenha");
+    var erro = document.querySelector("#SenhaDanger");
+    var Rerro = document.querySelector("#RepitaSenhaDanger");
+    erro.innerHTML = "";
+    Rerro.innerHTML = "";
+
+    var Senha = document.querySelector("#Senha");
     var RSenha = document.querySelector("#txtRepitaSenha");
-    if (Senha.lenght < 8) {
-        var erro = document.querySelector("#SenhaDanger");
+    if (Senha.value.length < 8) {
         erro.textContent = "A senha deve conter no mínimo 8 caracteres";
     }
     if (Senha != RSenha) {
-        var erro = document.querySelector("#RepitaSenhaDanger");
-        erro.textContent = "As senhas não conicidem";
+        Rerro.textContent = "As senhas não conicidem";
     }
     return Senha;
 }
 function ObtemUsuarioFormulario(form) {
-    var usuario = {
-        nome: form.nome.value,
-        datanascimento: form.datanascimento.value,
-        cpf: form.cpf.value,
-        email: form.email.value,
-        cep: form.cep.value,
-        rua: form.numero.value,
-        bairro: form.bairro.value,
-        cidade: form.cidade.value,
-        uf: form.uf.value,
-        pais: form.pais.value,
-        login: form.login.value,
-        senha: ValidarSenha()
-    }
+    
     return usuario;
 }
 function UsuarioValido(usuario) {
-    var erros = document.querySelectorAll(".field-validation-valid text-danger");
+    var erros = document.querySelectorAll(".text-danger");
     if (!NomeValido(usuario.nome)) {
         erro[0] = "Nome inváido";
     }
