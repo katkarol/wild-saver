@@ -25,7 +25,7 @@
                     <li>@Html.ActionLink("Sobre nós", "Sobre", "Home")</li>
                     <li>@Html.ActionLink("Contato", "Contato", "Home")</li>
                     <li>@Html.ActionLink("Denunciar", "Cadastrar", "Denuncia")</li>
-              
+
                     <li>@Html.ActionLink("Login", "Login", "Usuario")</li>
                     <li>@Html.ActionLink("Criar Conta", "CriarConta", "Usuario")</li>
 
@@ -43,6 +43,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Url("~/Scripts/Validacoes.js")
     @RenderSection("scripts", required: false)
 </body>
 </html>
