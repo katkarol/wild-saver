@@ -1,7 +1,27 @@
-﻿function NomeValido(nome) {
+﻿function ValidarSenha() {
+    var erro = document.querySelector("#SenhaDanger");
+    var Rerro = document.querySelector("#RepitaSenhaDanger");
+    erro.innerHTML = "";
+    Rerro.innerHTML = "";
+
+    var Senha = document.querySelector("#Senha").value;
+    var RSenha = document.querySelector("#Repita_Senha").value;
+    if (Senha.length < 8) {
+        erro.textContent = "A senha deve conter no mínimo 8 caracteres";
+    }
+    if (Senha != RSenha) {
+        Rerro.textContent = "As senhas não conicidem";
+    }
+    return Senha;
+}
+function NomeValido(nome) {
     if (nome.length < 5 || nome.length > 60) {
         return false;
     }
+    return true;
+}
+function DataNascimentoValido(datanascimento) {
+
     return true;
 }
 function CpfValido(cpf) {
