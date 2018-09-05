@@ -46,7 +46,9 @@ function ValidacaoCampos(usuario) {
         if (!UFValido(usuario.uf)) {
             erros[8].textContent = "UF deve conter somente 2 caracteres";
         }
-        
+        if (!EmailValido(usuario.email)) {
+            erros[9].textContent = "Email inválido";
+        }
         console.log(erros[i].textContent);
 
     }
