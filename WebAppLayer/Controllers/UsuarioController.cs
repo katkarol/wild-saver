@@ -38,8 +38,7 @@ namespace WebAppLayer.Controllers
         public ActionResult CriarConta(Usuario usuario)
         {
             usuario.PapelUsuario = PapelUsuario.Usuario;
-            return View();
-            // return RedirectToAction("Index","Home");
+            return RedirectToAction("Index","Home");
         }
         [HttpGet]
         public ActionResult CadastarFuncionario()
