@@ -10,8 +10,8 @@ using WebAppLayer.DAL;
 namespace WebAppLayer.Migrations
 {
     [DbContext(typeof(WildSaverContext))]
-    [Migration("20180823132437_PapelUsuario")]
-    partial class PapelUsuario
+    [Migration("20180906134603_Email")]
+    partial class Email
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,11 +27,13 @@ namespace WebAppLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("FiloID");
+                    b.Property<int>("FiloID");
 
-                    b.Property<string>("NomeCompleto");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
-                    b.Property<string>("NomePopular");
+                    b.Property<string>("NomePopular")
+                        .IsRequired();
 
                     b.HasKey("ID");
 
@@ -46,17 +48,23 @@ namespace WebAppLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Bairro");
+                    b.Property<string>("Bairro")
+                        .IsRequired();
 
-                    b.Property<string>("CEP");
+                    b.Property<string>("CEP")
+                        .IsRequired();
 
-                    b.Property<string>("Cidade");
+                    b.Property<string>("Cidade")
+                        .IsRequired();
 
-                    b.Property<string>("Pais");
+                    b.Property<string>("Numero")
+                        .IsRequired();
 
-                    b.Property<string>("Rua");
+                    b.Property<string>("Rua")
+                        .IsRequired();
 
-                    b.Property<string>("UF");
+                    b.Property<string>("UF")
+                        .IsRequired();
 
                     b.HasKey("ID");
 
@@ -69,11 +77,13 @@ namespace WebAppLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("NomeCompleto");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
-                    b.Property<string>("NomePopular");
+                    b.Property<string>("NomePopular")
+                        .IsRequired();
 
-                    b.Property<int?>("OrdemID");
+                    b.Property<int>("OrdemID");
 
                     b.HasKey("ID");
 
@@ -88,9 +98,11 @@ namespace WebAppLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("NomeCompleto");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
-                    b.Property<string>("NomePopular");
+                    b.Property<string>("NomePopular")
+                        .IsRequired();
 
                     b.HasKey("ID");
 
@@ -103,11 +115,13 @@ namespace WebAppLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("FamiliaID");
+                    b.Property<int>("FamiliaID");
 
-                    b.Property<string>("NomeCompleto");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
-                    b.Property<string>("NomePopular");
+                    b.Property<string>("NomePopular")
+                        .IsRequired();
 
                     b.HasKey("ID");
 
@@ -122,11 +136,13 @@ namespace WebAppLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ClasseID");
+                    b.Property<int>("ClasseID");
 
-                    b.Property<string>("NomeCompleto");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
-                    b.Property<string>("NomePopular");
+                    b.Property<string>("NomePopular")
+                        .IsRequired();
 
                     b.HasKey("ID");
 
@@ -139,13 +155,18 @@ namespace WebAppLayer.Migrations
                 {
                     b.Property<int>("UsuarioID");
 
-                    b.Property<string>("CPF");
+                    b.Property<string>("CPF")
+                        .IsRequired();
 
                     b.Property<DateTime>("DataNascimento");
 
-                    b.Property<int?>("EnderecoID");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
-                    b.Property<string>("NomeCompleto");
+                    b.Property<int>("EnderecoID");
+
+                    b.Property<string>("NomeCompleto")
+                        .IsRequired();
 
                     b.HasKey("UsuarioID");
 
@@ -160,11 +181,13 @@ namespace WebAppLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Login");
+                    b.Property<string>("Login")
+                        .IsRequired();
 
                     b.Property<int>("PapelUsuario");
 
-                    b.Property<string>("Senha");
+                    b.Property<string>("Senha")
+                        .IsRequired();
 
                     b.HasKey("ID");
 
@@ -175,35 +198,40 @@ namespace WebAppLayer.Migrations
                 {
                     b.HasOne("WebAppLayer.Models.Filo", "Filo")
                         .WithMany()
-                        .HasForeignKey("FiloID");
+                        .HasForeignKey("FiloID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("WebAppLayer.Models.Familia", b =>
                 {
                     b.HasOne("WebAppLayer.Models.Ordem", "Ordem")
                         .WithMany()
-                        .HasForeignKey("OrdemID");
+                        .HasForeignKey("OrdemID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("WebAppLayer.Models.Genero", b =>
                 {
                     b.HasOne("WebAppLayer.Models.Familia", "Familia")
                         .WithMany()
-                        .HasForeignKey("FamiliaID");
+                        .HasForeignKey("FamiliaID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("WebAppLayer.Models.Ordem", b =>
                 {
                     b.HasOne("WebAppLayer.Models.Classe", "Classe")
                         .WithMany()
-                        .HasForeignKey("ClasseID");
+                        .HasForeignKey("ClasseID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("WebAppLayer.Models.Pessoa", b =>
                 {
                     b.HasOne("WebAppLayer.Models.Endereco", "Endereco")
                         .WithMany()
-                        .HasForeignKey("EnderecoID");
+                        .HasForeignKey("EnderecoID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("WebAppLayer.Models.Usuario")
                         .WithOne("PessoaUsuaria")

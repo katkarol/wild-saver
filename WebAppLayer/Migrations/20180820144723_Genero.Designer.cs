@@ -29,7 +29,7 @@ namespace WebAppLayer.Migrations
 
                     b.Property<int?>("FiloID");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("NomeCompleto");
 
                     b.Property<string>("NomePopular");
 
@@ -46,7 +46,7 @@ namespace WebAppLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("NomeCompleto");
 
                     b.Property<string>("NomePopular");
 
@@ -65,7 +65,7 @@ namespace WebAppLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("NomeCompleto");
 
                     b.Property<string>("NomePopular");
 
@@ -82,7 +82,7 @@ namespace WebAppLayer.Migrations
 
                     b.Property<int?>("FamiliaID");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("NomeCompleto");
 
                     b.Property<string>("NomePopular");
 
@@ -101,7 +101,7 @@ namespace WebAppLayer.Migrations
 
                     b.Property<int?>("ClasseID");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("NomeCompleto");
 
                     b.Property<string>("NomePopular");
 
