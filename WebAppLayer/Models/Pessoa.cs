@@ -10,7 +10,7 @@ namespace WebAppLayer.Models
     public class Pessoa
     {
         [Required (ErrorMessage ="O nome deve ser informado")]
-        public string Nome { get; set; }
+        public string NomeCompleto { get; set; }
         [Required (ErrorMessage ="A data de nascimento deve ser informado")]
         public DateTime DataNascimento { get; set; }
         [Required]
