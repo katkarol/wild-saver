@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebAppLayer.DAL;
 using WebAppLayer.Models;
 using WebAppLayer.Models.Enums;
 
@@ -31,13 +32,17 @@ namespace WebAppLayer.Controllers
         [HttpGet]
         public ActionResult CriarConta()
         {
-
             return View();
         }
         [HttpPost]
         public ActionResult CriarConta(Usuario usuario)
         {
             usuario.PapelUsuario = PapelUsuario.Usuario;
+            if (usuario.PessoaUsuaria.DataNascimento > DateTime.Now.AddYears(-14))
+            {
+                throw new Exception("Idade Inválida! Para se cadastrar deve ser maior de 14 anos.");
+            }
+            UsuarioDAL.Adicionar(usuario);
             return RedirectToAction("Index","Home");
         }
         [HttpGet]

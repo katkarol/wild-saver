@@ -14,39 +14,39 @@ namespace WebAppLayer.DAL
         {
             contexto = new WildSaverContext();
         }
-        private WildSaverContext contexto;
+        private static WildSaverContext contexto;
 
 
-        public void Adicionar(Usuario u)
+        public static void Adicionar(Usuario u)
         {
             contexto.Usuarios.Add(u);
             contexto.SaveChanges();
         }
 
-        public void Atualizar(Usuario u)
+        public static void Atualizar(Usuario u)
         {
             contexto.Update(u);
             contexto.SaveChanges();
 
         }
 
-        public void Dispose()
+        public static void Dispose()
         {
             contexto.Dispose();
         }
 
-        public IList<Usuario> LerProdutos()
+        public static IList<Usuario> LerProdutos()
         {
             return contexto.Usuarios.ToList();
         }
 
-        public void Remover(Usuario u)
+        public static void Remover(Usuario u)
         {
             contexto.Usuarios.Remove(u);
             contexto.SaveChanges();
 
         }
-        public Usuario BuscarUsuarioSenha(Usuario u)
+        public static Usuario BuscarUsuarioSenha(Usuario u)
         {
 
             using (contexto)
