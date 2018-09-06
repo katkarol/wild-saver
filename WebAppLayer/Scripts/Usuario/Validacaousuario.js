@@ -1,6 +1,6 @@
 ﻿function ObtemUsuarioFormulario() {
     var usuario = {
-        nome: document.querySelector("#PessoaUsuaria_Nome").value,
+        nome: document.querySelector("#PessoaUsuaria_NomeCompleto").value,
         datanascimento: document.querySelector("#datetimepicker4").value,
         cpf: document.querySelector("#PessoaUsuaria_CPF").value,
         cep: document.querySelector("#PessoaUsuaria_Endereco_CEP").value,
@@ -13,14 +13,14 @@
         login: document.querySelector("#Login").value,
         senha: ValidarSenha()
     }
-    console.log(usuario);
     return usuario;
 }
 function ValidacaoCampos(usuario) {
 
     var erros = document.querySelectorAll(".text-danger");
-    console.log(erros);
     for (var i = 0; i < erros.length; i++) {
+        erros[i].innerHTML = "";
+
         if (!NomeValido(usuario.nome)) {
             erros[0].textContent = "Nome inváido";
         }
@@ -46,15 +46,11 @@ function ValidacaoCampos(usuario) {
         if (!UFValido(usuario.uf)) {
             erros[8].textContent = "UF deve conter somente 2 caracteres";
         }
-        if (!EmailValido(usuario.email)) {
-            erros[9].textContent = "Email inválido";
-        }
-        console.log(erros[i].textContent);
+        
 
     }
     for (var i = 0; i < erros.length; i++) {
-        if (erros[i] != "") {
-            console.log(erros.textContent);
+        if (erros[i].textContent != "") {
             return false;
         }
     }

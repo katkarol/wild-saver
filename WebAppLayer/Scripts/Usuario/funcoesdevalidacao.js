@@ -6,8 +6,8 @@
 
     var Senha = document.querySelector("#Senha").value;
     var RSenha = document.querySelector("#Repita_Senha").value;
-    if (Senha.length < 8) {
-        erro.textContent = "A senha deve conter no mínimo 8 caracteres";
+    if (Senha.length < 6) {
+        erro.textContent = "A senha deve conter no mínimo 6 caracteres";
     }
     if (Senha != RSenha) {
         Rerro.textContent = "As senhas não conicidem";
@@ -84,5 +84,8 @@ function EmailValido(email) {
     else {
         return false;
     }
+}
+if (!EmailValido(usuario.email)) {
+    erros[9].textContent = "Email inválido";
 }
 
