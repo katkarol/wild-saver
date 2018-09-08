@@ -10,6 +10,7 @@
 
     <div class="form-horizontal">
         <h4>Login</h4>
+        <span id="ErroGeral"></span>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -45,3 +46,6 @@
 <div>
     @Html.ActionLink("Voltar", "Index", "Home")
 </div>
+
+<script src="~/Scripts/Validacoes.js"></script>
+<script src="~/Scripts/Usuario/ValidacaoLogin.js"></script>
