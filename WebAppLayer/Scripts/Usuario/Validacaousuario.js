@@ -1,4 +1,4 @@
-﻿function ObtemUsuarioFormulario() {
+﻿function ObtemInformacoesFormulario() {
     var usuario = {
         nome: document.querySelector("#PessoaUsuaria_NomeCompleto").value,
         datanascimento: document.querySelector("#datetimepicker4").value,
