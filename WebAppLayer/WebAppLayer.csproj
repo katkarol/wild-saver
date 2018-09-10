@@ -278,6 +278,10 @@
     <Compile Include="Migrations\20180823132437_PapelUsuario.designer.cs">
       <DependentUpon>20180823132437_PapelUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180906134603_Email.cs" />
+    <Compile Include="Migrations\20180906134603_Email.designer.cs">
+      <DependentUpon>20180906134603_Email.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\WildSaverContextModelSnapshot.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\AnimalEndereco.cs" />
@@ -320,8 +324,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\ValidarUsuario.js" />
-    <Content Include="Scripts\ValidacoesUsuario.js" />
+    <Content Include="Scripts\Usuario\Validacaousuario.js" />
+    <Content Include="Scripts\Usuario\funcoesdevalidacao.js" />
+    <Content Include="Scripts\Validacoes.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
