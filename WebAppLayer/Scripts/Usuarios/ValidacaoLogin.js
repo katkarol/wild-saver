@@ -3,6 +3,8 @@
         login: document.querySelector("#Login").value,
         senha: document.querySelector("#Senha").value
     }
+    console.log(usuario);
+    debugger
     return usuario;
 }
 function ValidacaoCampos(usuario) {
@@ -15,7 +17,7 @@ function ValidacaoCampos(usuario) {
             erros[0].textContent = "O campo do login deve ser preenchido.";
         }
         if (usuario.senha == 0) {
-            erros[1].textContent = "O campo da senha deve ser preenchido."
+            erros[1].textContent = "O campo da senha deve ser preenchido.";
         }
 
     }

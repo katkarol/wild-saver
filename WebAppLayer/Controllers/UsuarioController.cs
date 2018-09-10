@@ -30,13 +30,12 @@ namespace WebAppLayer.Controllers
             if (u.Login == usuario.Login)
             {
                 throw new Exception("O usuario e/ou a senha estão incorretos");
-
             }
             if (u.Senha == usuario.Senha)
             {
                 throw new Exception("O usuario e/ou a senha estão incorretos");
             }
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
         [HttpGet]
         public ActionResult CriarConta()
