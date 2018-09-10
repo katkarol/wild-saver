@@ -18,7 +18,11 @@
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_ViewDialogWidth>600</WebStackScaffolding_ViewDialogWidth>
+<<<<<<< HEAD
     <ActiveDebugTarget />
+=======
+    <ProjectView>ShowAllFiles</ProjectView>
+>>>>>>> ba6c00f2bdfdfca3a312507de0838a684d4e6884
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

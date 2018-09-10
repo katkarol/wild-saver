@@ -3,7 +3,7 @@
 botao.addEventListener("click", function (event) {
     
 
-    var object = ObtemUsuarioFormulario();
+    var object = ObtemInformacoesFormulario();
     if (!ValidacaoCampos(object)) {
         event.preventDefault();
         return;
