@@ -17,7 +17,7 @@ namespace WebAppLayer.Models
         public string Rua { get; set; }
         [Required (ErrorMessage = "O bairro deve ser informado")]
         public string Bairro { get; set; }
-        [Required (ErrorMessage = "A cidade deve ser informada")]
+        [Required(ErrorMessage = "A cidade deve ser informada")]
         public string Cidade { get; set; }
         [Required(ErrorMessage = "O estado deve ser informado")]
         public string UF { get; set; }
