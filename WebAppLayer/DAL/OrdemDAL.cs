@@ -33,7 +33,7 @@ namespace WebAppLayer.DAL
             contexto.Dispose();
         }
 
-        public IList<Ordem> LerProdutos()
+        public IList<Ordem> Lista()
         {
             return contexto.Ordens.ToList();
         }

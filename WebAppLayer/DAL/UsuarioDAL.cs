@@ -35,7 +35,7 @@ namespace WebAppLayer.DAL
             contexto.Dispose();
         }
 
-        public static IList<Usuario> LerProdutos()
+        public static IList<Usuario> Lista()
         {
             return contexto.Usuarios.ToList();
         }
