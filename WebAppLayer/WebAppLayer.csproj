@@ -280,7 +280,7 @@
     </Compile>
     <Compile Include="Migrations\WildSaverContextModelSnapshot.cs" />
     <Compile Include="Models\Animal.cs" />
-    <Compile Include="Models\AnimalEndereco.cs" />
+    <Compile Include="Models\AnimalRegiao.cs" />
     <Compile Include="Models\Classe.cs" />
     <Compile Include="Models\Denuncia.cs" />
     <Compile Include="Models\DenunciaAnimal.cs" />
@@ -291,6 +291,7 @@
     <Compile Include="Models\Genero.cs" />
     <Compile Include="Models\Ordem.cs" />
     <Compile Include="Models\Pessoa.cs" />
+    <Compile Include="Models\Regiao.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -342,10 +343,11 @@
     <Content Include="Views\Usuario\CriarConta.cshtml" />
     <Content Include="Views\Ordem\Index.cshtml" />
     <Content Include="Views\Usuario\CadastarFuncionario.cshtml" />
+    <Content Include="Views\Usuario\RedefinirSenha.cshtml" />
+    <Content Include="Views\Animal\Cadastrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Animal\" />
     <Folder Include="Views\Classe\" />
     <Folder Include="Views\Denuncia\" />
     <Folder Include="Views\Familia\" />

@@ -24,6 +24,7 @@ namespace WebAppLayer.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(Usuario u)
         {
             Usuario usuario = UsuarioDAL.BuscarUsuarioSenha(u);
@@ -43,6 +44,7 @@ namespace WebAppLayer.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CriarConta(Usuario usuario)
         {
             usuario.PapelUsuario = PapelUsuario.Usuario;
@@ -60,6 +62,7 @@ namespace WebAppLayer.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CadastarFuncionario(Usuario usuario)
         {
             usuario.PapelUsuario = PapelUsuario.Funcionario;
@@ -72,6 +75,7 @@ namespace WebAppLayer.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult RedefinirSenha(Usuario usuario)
         {
             return RedirectToAction("Login", "Usuario");
