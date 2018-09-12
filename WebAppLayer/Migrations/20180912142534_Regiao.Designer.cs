@@ -3,55 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebAppLayer.DAL;
 
 namespace WebAppLayer.Migrations
 {
     [DbContext(typeof(WildSaverContext))]
-    partial class WildSaverContextModelSnapshot : ModelSnapshot
+    [Migration("20180912142534_Regiao")]
+    partial class Regiao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.2-rtm-30932")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("WebAppLayer.Models.Animal", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Descricao")
-                        .IsRequired();
-
-                    b.Property<int>("GeneroID");
-
-                    b.Property<string>("NomePopular")
-                        .IsRequired();
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("GeneroID");
-
-                    b.ToTable("Animais");
-                });
-
-            modelBuilder.Entity("WebAppLayer.Models.AnimalRegiao", b =>
-                {
-                    b.Property<int>("AnimalId");
-
-                    b.Property<int>("RegiaoId");
-
-                    b.HasKey("AnimalId", "RegiaoId");
-
-                    b.HasIndex("RegiaoId");
-
-                    b.ToTable("AnimalRegiao");
-                });
 
             modelBuilder.Entity("WebAppLayer.Models.Classe", b =>
                 {
@@ -244,27 +212,6 @@ namespace WebAppLayer.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Usuarios");
-                });
-
-            modelBuilder.Entity("WebAppLayer.Models.Animal", b =>
-                {
-                    b.HasOne("WebAppLayer.Models.Genero", "Genero")
-                        .WithMany()
-                        .HasForeignKey("GeneroID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("WebAppLayer.Models.AnimalRegiao", b =>
-                {
-                    b.HasOne("WebAppLayer.Models.Animal", "Animal")
-                        .WithMany()
-                        .HasForeignKey("AnimalId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("WebAppLayer.Models.Regiao", "Regiao")
-                        .WithMany()
-                        .HasForeignKey("RegiaoId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("WebAppLayer.Models.Classe", b =>

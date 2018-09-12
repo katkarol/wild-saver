@@ -17,10 +17,14 @@ namespace WebAppLayer.DAL
         internal DbSet<Endereco> Enderecos { get; set; }
         internal DbSet<Usuario> Usuarios { get; set; }
         internal DbSet<Pessoa> Pessoas { get; set; }
+        internal DbSet<Regiao> Regioes { get; set; }
+        internal DbSet<Animal> Animais { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<AnimalRegiao>().HasKey(ar => new { ar.AnimalId, ar.RegiaoId });
             modelBuilder.Entity<Pessoa>().Property<int>("UsuarioID");
 
             modelBuilder.Entity<Pessoa>().HasKey("UsuarioID");

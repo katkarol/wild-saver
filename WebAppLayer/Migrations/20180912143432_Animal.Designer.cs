@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebAppLayer.DAL;
 
 namespace WebAppLayer.Migrations
 {
     [DbContext(typeof(WildSaverContext))]
-    partial class WildSaverContextModelSnapshot : ModelSnapshot
+    [Migration("20180912143432_Animal")]
+    partial class Animal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,24 +35,15 @@ namespace WebAppLayer.Migrations
                     b.Property<string>("NomePopular")
                         .IsRequired();
 
+                    b.Property<int>("RegiaoID");
+
                     b.HasKey("ID");
 
                     b.HasIndex("GeneroID");
 
+                    b.HasIndex("RegiaoID");
+
                     b.ToTable("Animais");
-                });
-
-            modelBuilder.Entity("WebAppLayer.Models.AnimalRegiao", b =>
-                {
-                    b.Property<int>("AnimalId");
-
-                    b.Property<int>("RegiaoId");
-
-                    b.HasKey("AnimalId", "RegiaoId");
-
-                    b.HasIndex("RegiaoId");
-
-                    b.ToTable("AnimalRegiao");
                 });
 
             modelBuilder.Entity("WebAppLayer.Models.Classe", b =>
@@ -252,18 +245,10 @@ namespace WebAppLayer.Migrations
                         .WithMany()
                         .HasForeignKey("GeneroID")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("WebAppLayer.Models.AnimalRegiao", b =>
-                {
-                    b.HasOne("WebAppLayer.Models.Animal", "Animal")
-                        .WithMany()
-                        .HasForeignKey("AnimalId")
-                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("WebAppLayer.Models.Regiao", "Regiao")
                         .WithMany()
-                        .HasForeignKey("RegiaoId")
+                        .HasForeignKey("RegiaoID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

@@ -278,6 +278,18 @@
     <Compile Include="Migrations\20180823132437_PapelUsuario.designer.cs">
       <DependentUpon>20180823132437_PapelUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180912142534_Regiao.cs" />
+    <Compile Include="Migrations\20180912142534_Regiao.designer.cs">
+      <DependentUpon>20180912142534_Regiao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180912143432_Animal.cs" />
+    <Compile Include="Migrations\20180912143432_Animal.designer.cs">
+      <DependentUpon>20180912143432_Animal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180912144520_AnimalRegiao.cs" />
+    <Compile Include="Migrations\20180912144520_AnimalRegiao.designer.cs">
+      <DependentUpon>20180912144520_AnimalRegiao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\WildSaverContextModelSnapshot.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\AnimalRegiao.cs" />
