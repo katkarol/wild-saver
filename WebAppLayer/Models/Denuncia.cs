@@ -10,14 +10,13 @@ namespace WebAppLayer.Models
     {
         public int ID { get; set; }
         public Usuario Usuario { get; set; }
-
+        
         public DateTime DataInsercao { get; set; }
         [Required]
         public DateTime DataDaDenuncia { get; set; }
         [Required]
         public Endereco Local { get; set; }
         [Required]
-        public Animal Animal { get; set; }
         public string DescricaoAnimal { get; set; }
         public bool Anonimo { get; set; }
     }

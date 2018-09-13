@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebAppLayer.DAL;
 
 namespace WebAppLayer.Migrations
 {
     [DbContext(typeof(WildSaverContext))]
-    partial class WildSaverContextModelSnapshot : ModelSnapshot
+    [Migration("20180913143846_Denuncia")]
+    partial class Denuncia
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,14 +82,15 @@ namespace WebAppLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AnimalID");
+
                     b.Property<bool>("Anonimo");
 
                     b.Property<DateTime>("DataDaDenuncia");
 
                     b.Property<DateTime>("DataInsercao");
 
-                    b.Property<string>("DescricaoAnimal")
-                        .IsRequired();
+                    b.Property<string>("DescricaoAnimal");
 
                     b.Property<int>("LocalID");
 
@@ -95,24 +98,13 @@ namespace WebAppLayer.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("AnimalID");
+
                     b.HasIndex("LocalID");
 
                     b.HasIndex("UsuarioID");
 
                     b.ToTable("Denucias");
-                });
-
-            modelBuilder.Entity("WebAppLayer.Models.DenunciaAnimal", b =>
-                {
-                    b.Property<int>("AnimalId");
-
-                    b.Property<int>("DenunciaId");
-
-                    b.HasKey("AnimalId", "DenunciaId");
-
-                    b.HasIndex("DenunciaId");
-
-                    b.ToTable("DenunciaAnimal");
                 });
 
             modelBuilder.Entity("WebAppLayer.Models.Endereco", b =>
@@ -318,6 +310,11 @@ namespace WebAppLayer.Migrations
 
             modelBuilder.Entity("WebAppLayer.Models.Denuncia", b =>
                 {
+                    b.HasOne("WebAppLayer.Models.Animal", "Animal")
+                        .WithMany()
+                        .HasForeignKey("AnimalID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("WebAppLayer.Models.Endereco", "Local")
                         .WithMany()
                         .HasForeignKey("LocalID")
@@ -326,19 +323,6 @@ namespace WebAppLayer.Migrations
                     b.HasOne("WebAppLayer.Models.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("UsuarioID");
-                });
-
-            modelBuilder.Entity("WebAppLayer.Models.DenunciaAnimal", b =>
-                {
-                    b.HasOne("WebAppLayer.Models.Animal", "Animal")
-                        .WithMany()
-                        .HasForeignKey("AnimalId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("WebAppLayer.Models.Denuncia", "Denuncia")
-                        .WithMany()
-                        .HasForeignKey("DenunciaId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("WebAppLayer.Models.Familia", b =>
