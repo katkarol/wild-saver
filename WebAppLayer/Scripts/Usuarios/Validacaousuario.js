@@ -1,4 +1,5 @@
-﻿function ObtemInformacoesFormulario() {
+﻿
+function ObtemInformacoesFormulario() {
     var usuario = {
         nome: document.querySelector("#PessoaUsuaria_NomeCompleto").value,
         datanascimento: document.querySelector("#datetimepicker4").value,
@@ -28,7 +29,7 @@ function ValidacaoCampos(usuario) {
         if (!CpfValido(usuario.cpf)) {
             erros[2].textContent = "CPF inválido";
         }
-        if (!CEPValido(usuario.cep)) {
+        if (!CEPValido(usuario.cep) || isNumber(usuario.cep)) {
             erros[3].textContent = "CEP inválido";
         }
         if (!NumeroValido(usuario.numero)) {
@@ -58,3 +59,4 @@ function ValidacaoCampos(usuario) {
     return true;
 
 }
+

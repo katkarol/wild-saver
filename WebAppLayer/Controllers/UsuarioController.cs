@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebAppLayer.BusinessLogic;
 using WebAppLayer.DAL;
 using WebAppLayer.Models;
 using WebAppLayer.Models.Enums;
@@ -25,18 +26,11 @@ namespace WebAppLayer.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Usuario u)
+        public ActionResult Login(Usuario usuario)
         {
-            Usuario usuario = UsuarioDAL.BuscarUsuarioSenha(u);
-            if (u.Login == usuario.Login)
-            {
-                throw new Exception("O usuario e/ou a senha estão incorretos");
-            }
-            if (u.Senha == usuario.Senha)
-            {
-                throw new Exception("O usuario e/ou a senha estão incorretos");
-            }
+            UsuarioBL.ValidacoesLogin(usuario);
             return RedirectToAction("Index", "Home");
+
         }
         [HttpGet]
         public ActionResult CriarConta()
@@ -47,12 +41,9 @@ namespace WebAppLayer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CriarConta(Usuario usuario)
         {
+            
             usuario.PapelUsuario = PapelUsuario.Usuario;
-            if (usuario.PessoaUsuaria.DataNascimento > DateTime.Now.AddYears(-14))
-            {
-                throw new Exception("Idade Inválida! Para se cadastrar deve ser maior de 14 anos.");
-            }
-            UsuarioDAL.Adicionar(usuario);
+            UsuarioBL.ValidacoesCriarConta(usuario);
             return RedirectToAction("Index","Home");
         }
         [HttpGet]
@@ -66,6 +57,7 @@ namespace WebAppLayer.Controllers
         public ActionResult CadastarFuncionario(Usuario usuario)
         {
             usuario.PapelUsuario = PapelUsuario.Funcionario;
+            UsuarioBL.ValidacoesCriarConta(usuario);
             return RedirectToAction("Index", "Home");
         }
         [HttpGet]

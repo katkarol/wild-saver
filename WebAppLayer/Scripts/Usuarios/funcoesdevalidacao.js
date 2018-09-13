@@ -28,8 +28,13 @@ function CpfValido(cpf) {
     if (cpf.length != 14) {
         return false;
     }
+   
     return true;
 }
+function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 function CEPValido(cep) {
     if (cep.length != 9) {
         return false;
@@ -87,5 +92,13 @@ function EmailValido(email) {
 }
 if (!EmailValido(usuario.email)) {
     erros[9].textContent = "Email inválido";
+}
+function AdicionaExemplos() {
+    var cpf = $("#PessoaUsuaria_CPF");
+
+    cpf.on("input", function () {
+        var exemplo = $("#ExemploCpf").text;
+        exemplo = "Exemplo: 000.000.000-00";
+    });
 }
 

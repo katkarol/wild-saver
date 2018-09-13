@@ -1,4 +1,5 @@
 ﻿var botao = document.querySelector("#Botao");
+AdicionaExemplos()
 
 botao.addEventListener("click", function (event) {
     
@@ -8,4 +9,5 @@ botao.addEventListener("click", function (event) {
         event.preventDefault();
         return;
     }
+ 
 });
