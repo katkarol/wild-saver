@@ -28,7 +28,7 @@ namespace WebAppLayer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(Usuario usuario)
         {
-            UsuarioBL.ValidacoesLogin(usuario);
+           // UsuarioBL.ValidacoesLogin(usuario);
             return RedirectToAction("Index", "Home");
 
         }

@@ -55,5 +55,14 @@ namespace WebAppLayer.DAL
 
             }
         }
+        public static int ExisteLogin (string login)
+        {
+
+            using (contexto)
+            {
+                return contexto.Usuarios.Where(usuario => usuario.Login == login).Count(); 
+
+            }
+        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿var botao = document.querySelector("#Botao");
-AdicionaExemplos()
+//AdicionaExemplos()
 
 botao.addEventListener("click", function (event) {
     

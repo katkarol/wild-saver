@@ -26,10 +26,10 @@ function ValidacaoCampos(usuario) {
             erros[0].textContent = "Nome inváido";
         }
 
-        if (!CpfValido(usuario.cpf)) {
+        if (!CpfValido(usuario.cpf || isNumber(usuario.cpf)) {
             erros[2].textContent = "CPF inválido";
         }
-        if (!CEPValido(usuario.cep) || isNumber(usuario.cep)) {
+        if (!CEPValido(usuario.cep) )) {
             erros[3].textContent = "CEP inválido";
         }
         if (!NumeroValido(usuario.numero)) {

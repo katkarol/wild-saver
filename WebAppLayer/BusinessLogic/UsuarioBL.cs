@@ -25,6 +25,7 @@ namespace WebAppLayer.BusinessLogic
             {
                 throw new Exception("Idade Inválida! Para cadastrar funcionario deve ser maior de 18 anos.");
             }
+
             UsuarioDAL.Adicionar(usuario);
 
         }
