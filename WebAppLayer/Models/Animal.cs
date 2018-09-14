@@ -15,5 +15,7 @@ namespace WebAppLayer.Models
         public string Descricao { get; set; }
         [Required]
         public string NomePopular { get; set; }
+
+        public List<Regiao> Regioes { get; set; }
     }
 }

@@ -3,15 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebAppLayer.DAL;
+using WebAppLayer.Models;
 
 namespace WebAppLayer.Controllers
 {
     public class OrdemController : Controller
     {
-        // GET: Ordem
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult Cadastrar()
         {
+            ViewBag.Ordem = new Ordem();
+            ClasseDAL dal = new ClasseDAL();
+            IList<Classe> classes = dal.Lista();
+            ViewBag.Classes = classes;
+
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Cadastrar(Ordem ordem)
+        {
+            return RedirectToAction("Cadastrar", "Familia");
+        }
+
     }
 }

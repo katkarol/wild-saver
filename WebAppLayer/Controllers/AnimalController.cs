@@ -24,7 +24,7 @@ namespace WebAppLayer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(Animal animal)
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

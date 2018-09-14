@@ -365,17 +365,17 @@
     <Content Include="Views\Home\Contato.cshtml" />
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Usuario\CriarConta.cshtml" />
-    <Content Include="Views\Ordem\Index.cshtml" />
     <Content Include="Views\Usuario\CadastarFuncionario.cshtml" />
     <Content Include="Views\Usuario\RedefinirSenha.cshtml" />
     <Content Include="Views\Animal\Cadastrar.cshtml" />
+    <Content Include="Views\Ordem\Cadastrar.cshtml" />
+    <Content Include="Views\Classe\Cadastrar.cshtml" />
+    <Content Include="Views\Filo\Cadastrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Classe\" />
     <Folder Include="Views\Denuncia\" />
     <Folder Include="Views\Familia\" />
-    <Folder Include="Views\Filo\" />
     <Folder Include="Views\Genero\" />
   </ItemGroup>
   <ItemGroup>

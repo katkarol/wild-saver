@@ -32,14 +32,16 @@ namespace WebAppLayer.BusinessLogic
         public static void ValidacoesLogin(Usuario usuario)
         {
             Usuario u = UsuarioDAL.BuscarUsuarioSenha(usuario);
-            if (u.Login == usuario.Login)
+            if (u.Login != usuario.Login)
             {
                 throw new Exception("O usuario e/ou a senha estão incorretos");
             }
-            if (u.Senha == usuario.Senha)
+            if (u.Senha != usuario.Senha)
             {
                 throw new Exception("O usuario e/ou a senha estão incorretos");
             }
+            HttpContext.Current.Session["USUARIO"] = "nomeDoUsuario";
+            HttpContext.Current.Session["SENHA"] = "senha";
         }
     }
 }
