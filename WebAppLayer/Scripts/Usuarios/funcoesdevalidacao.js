@@ -90,9 +90,7 @@ function EmailValido(email) {
         return false;
     }
 }
-if (!EmailValido(usuario.email)) {
-    erros[9].textContent = "Email inválido";
-}
+
 function AdicionaExemplos() {
     var cpf = $("#PessoaUsuaria_CPF");
 
