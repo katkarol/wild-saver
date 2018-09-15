@@ -1,7 +1,8 @@
 ﻿@model WebAppLayer.Models.Classe
-
+@using WebAppLayer.Models
 @{
     ViewBag.Title = "Cadastrar Classe";
+    var filos = ViewBag.Filos ?? new List<Filo>();
 }
 
 <h2>Cadastrar Classe</h2>
@@ -33,10 +34,10 @@
         @Html.LabelFor(model => model.Filo, htmlAttributes: new { @class = "control-label col-md-2" })
         <div>
             <select id="filo" name="classe.filo.ID" class="form-control">
-                @for (int i = 0; i < ViewBag.Filos.Count; i++)
+                @foreach (var filo in filos)
                 {
-                    <option value="@ViewBag.Filos[i].ID" selected="@ViewBag.Filos[i].ID.Equals(ViewBag.Classe.Filo.ID)">
-                        @ViewBag.Filos[i].Nome
+                    <option value="@filo.ID">
+                        @filo.Nome
                     </option>
                 }
             </select>

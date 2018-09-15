@@ -13,12 +13,11 @@ namespace WebAppLayer.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            ViewBag.Classe = new Classe();
             FiloDAL dal = new FiloDAL();
             IList<Filo> filos = dal.Lista();
             ViewBag.Filos = filos;
 
-            return View();
+            return View(new Classe());
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
