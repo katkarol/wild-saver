@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppLayer.DAL;
 using WebAppLayer.Models;
+using WebAppLayer.BusinessLogic;
 
 namespace WebAppLayer.Controllers
 {
@@ -14,9 +15,7 @@ namespace WebAppLayer.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            ViewBag.Genero = new Genero();
-            FamiliaDAL dal = new FamiliaDAL();
-            IList<Familia> familias = dal.Lista();
+            IList<Familia> familias = FamiliaDAL.Lista();
             ViewBag.Familias = familias;
 
             return View();
@@ -25,6 +24,7 @@ namespace WebAppLayer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(Genero genero)
         {
+            GeneroBL.AdicionarGenero(genero);
             return RedirectToAction("Cadastrar", "Animal");
 
         }

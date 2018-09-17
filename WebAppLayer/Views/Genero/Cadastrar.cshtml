@@ -1,0 +1,53 @@
+﻿@model WebAppLayer.Models.Genero
+@using WebAppLayer.Models
+@{
+    ViewBag.Title = "Cadastrar Genero";
+    var familias = ViewBag.Familias ?? new List<Familia>();
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Cadastrar Genero</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("model.NomePopular", "Nome Popular", htmlAttributes: new { @class = "control-label col-md-2" })
+
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NomePopular, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NomePopular, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Familia, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div>
+            <select id="Filo" class="form-control">
+                @foreach (var familia in familias)
+                {
+                    <option value="@familia.ID">
+                        @familia.Nome
+                    </option>
+                }
+            </select>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Cadastrar Genero" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    }
+
