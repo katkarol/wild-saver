@@ -13,7 +13,6 @@ namespace WebAppLayer.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            ViewBag.Ordem = new Ordem();
             ClasseDAL dal = new ClasseDAL();
             IList<Classe> classes = dal.Lista();
             ViewBag.Classes = classes;
