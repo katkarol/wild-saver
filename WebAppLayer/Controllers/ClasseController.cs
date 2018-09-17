@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppLayer.DAL;
 using WebAppLayer.Models;
+using WebAppLayer.BusinessLogic;
 
 namespace WebAppLayer.Controllers
 {
@@ -13,8 +14,7 @@ namespace WebAppLayer.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            FiloDAL dal = new FiloDAL();
-            IList<Filo> filos = dal.Lista();
+            IList<Filo> filos = FiloDAL.Lista();
             ViewBag.Filos = filos;
 
             return View(new Classe());
@@ -23,6 +23,7 @@ namespace WebAppLayer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(Classe classe)
         {
+            ClasseBL.ValidarCadastro(classe);
             return RedirectToAction("Cadastrar", "Ordem");
         }
 

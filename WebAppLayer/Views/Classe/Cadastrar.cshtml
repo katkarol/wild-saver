@@ -33,7 +33,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Filo, htmlAttributes: new { @class = "control-label col-md-2" })
         <div>
-            <select id="filo" name="classe.filo.ID" class="form-control">
+            <select id="Filo" name="classe.filo.ID" class="form-control">
                 @foreach (var filo in filos)
                 {
                     <option value="@filo.ID">
@@ -46,11 +46,15 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Cadastrar Classe" class="btn btn-default" />
             </div>
         </div>
     </div>
     </div>
+
+   
 }
-    
+<script src="~/Scripts/Validacoes.js"></script>
+<script src="~/Scripts/Classe/ValidacaoClasse.js"></script>
+<script src="~/Scripts/Classe/FuncoesdeValidacoesClasse.js"></script>    
   
