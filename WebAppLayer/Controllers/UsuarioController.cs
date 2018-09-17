@@ -43,7 +43,7 @@ namespace WebAppLayer.Controllers
         {
             
             usuario.PapelUsuario = PapelUsuario.Usuario;
-            UsuarioBL.ValidacoesCriarConta(usuario);
+            UsuarioBL.AdicionarConta(usuario);
             return RedirectToAction("Index","Home");
         }
         [HttpGet]
@@ -57,7 +57,7 @@ namespace WebAppLayer.Controllers
         public ActionResult CadastarFuncionario(Usuario usuario)
         {
             usuario.PapelUsuario = PapelUsuario.Funcionario;
-            UsuarioBL.ValidacoesCriarConta(usuario);
+            UsuarioBL.AdicionarConta(usuario);
             return RedirectToAction("Index", "Home");
         }
         [HttpGet]

@@ -1,6 +1,9 @@
 ﻿@model WebAppLayer.Models.Animal
+@using WebAppLayer.Models
 @{
     ViewBag.Title = "Cadastrar Animal";
+    var generos = ViewBag.Generos ?? new List<Genero>();
+
 }
 
 
@@ -11,77 +14,51 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <h4>Animal</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.NomePopular, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NomePopular, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NomePopular, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <h4>Animal</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("model.NomePopular", "Nome Popular", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NomePopular, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NomePopular, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Genero, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div>
-            <select id="genero" name="animal.Genero.ID" class="form-control">
-                @foreach (var genero in ViewBag.Generos)
-                {
-                    <option value="@genero.ID" selected="@genero.ID.Equals(ViewBag.Animal.Genero.ID)">
-                        @genero.NomePopular
-                    </option>
-                }
-            </select>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Genero, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                <select id="Genero" class="form-control">
+                    @foreach (var genero in generos)
+                    {
+                        <option value="@genero.ID">
+                            @genero.NomePopular
+                        </option>
+                    }
+                </select>
 
+            </div>
         </div>
-    </div>
-    <div>
         
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Regioes[0].Cidade, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Regioes[0].Cidade, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Regioes[0].Cidade, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.Regioes[0].UF, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Regioes[0].UF, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Regioes[0].UF, "", new { @class = "text-danger" })
-                </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Regioes[0].Pais, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Regioes[0].Pais, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Regioes[0].Pais, "", new { @class = "text-danger" })
-                </div>
+           
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Cadastrar Animal" class="btn btn-default" />
             </div>
-        
-
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Criar " class="btn btn-default" />
         </div>
     </div>
-</div>
 }
 
-<div>
-    @Html.ActionLink("Voltar", "Index", "Home")
-</div>
+
 

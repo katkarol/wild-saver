@@ -10,12 +10,19 @@ namespace WebAppLayer.BusinessLogic
 {
     public class UsuarioBL
     {
-        public static void ValidacoesCriarConta(Usuario usuario)
+        public static void AdicionarConta(Usuario usuario)
         {
             usuario.PessoaUsuaria.CPF.Replace(".", "").Replace("-", "");
+            usuario.PessoaUsuaria.Endereco.CEP.Replace("-", "");
             if (usuario.PessoaUsuaria.CPF.Length != 11)
             {
                 throw new Exception("CPF Inválido!");
+
+            }
+            if (usuario.PessoaUsuaria.Endereco.CEP.Length != 8)
+            {
+                throw new Exception("CEP Inválido!");
+
             }
             if (usuario.PapelUsuario == PapelUsuario.Usuario && usuario.PessoaUsuaria.DataNascimento > DateTime.Now.AddYears(-14))
             {
@@ -25,7 +32,10 @@ namespace WebAppLayer.BusinessLogic
             {
                 throw new Exception("Idade Inválida! Para cadastrar funcionario deve ser maior de 18 anos.");
             }
-
+            if (UsuarioDAL.ExisteLogin(usuario.Login ) != 0)
+            {
+                throw new Exception("Usuário login já existe");
+            }
             UsuarioDAL.Adicionar(usuario);
 
         }

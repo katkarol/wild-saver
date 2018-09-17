@@ -9,10 +9,9 @@ namespace WebAppLayer.BusinessLogic
 {
     public class ClasseBL
     {
-        public static void ValidarCadastro(Classe classe )
+        public static void AdicionarClasse(Classe classe )
         {
-            IList<Filo> filos = FiloDAL.Lista();
-            if (!filos.Contains(classe.Filo))
+            if (!FiloDAL.Lista().Contains(classe.Filo))
             {
                 throw new Exception("Filo inválido!");
             }

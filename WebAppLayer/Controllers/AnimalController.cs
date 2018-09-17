@@ -13,7 +13,6 @@ namespace WebAppLayer.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            ViewBag.Animal = new Animal();
             GeneroDAL dal = new GeneroDAL();
             IList<Genero> generos = dal.Lista();
             ViewBag.Generos = generos;
@@ -22,7 +21,7 @@ namespace WebAppLayer.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Cadastrar(Animal animal)
+        public ActionResult Cadastrar(Animal animal, Regiao regiao)
         {
             return RedirectToAction("Index", "Home");
         }

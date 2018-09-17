@@ -225,6 +225,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BusinessLogic\ClasseBL.cs" />
+    <Compile Include="BusinessLogic\FamiliaBL.cs" />
+    <Compile Include="BusinessLogic\FiloBL.cs" />
+    <Compile Include="BusinessLogic\GeneroBL.cs" />
+    <Compile Include="BusinessLogic\OrdemBL.cs" />
     <Compile Include="BusinessLogic\UsuarioBL.cs" />
     <Compile Include="Controllers\AnimalController.cs" />
     <Compile Include="Controllers\ClasseController.cs" />
@@ -327,12 +332,19 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Imagens\bird_icon.png" />
+    <Content Include="Scripts\Animal\ValidacaoAnimal.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\Classe\FuncoesdeValidacoesClasse.js" />
+    <Content Include="Scripts\Classe\ValidacaoClasse.js" />
+    <Content Include="Scripts\Familia\FuncoesdeValidacaoFamilia.js" />
+    <Content Include="Scripts\Familia\ValidacaoFamilia.js" />
+    <Content Include="Scripts\Filo\FuncoesdeValidacoesFilo.js" />
+    <Content Include="Scripts\Filo\ValidacoesFilo.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -343,6 +355,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Ordem\FuncoesdeValidacoesOrdem.js" />
+    <Content Include="Scripts\Ordem\ValidaoesOrdem.js" />
     <Content Include="Scripts\selectize.js" />
     <Content Include="Scripts\selectize.min.js" />
     <Content Include="Scripts\Usuarios\funcoesdevalidacao.js" />
@@ -371,12 +385,12 @@
     <Content Include="Views\Ordem\Cadastrar.cshtml" />
     <Content Include="Views\Classe\Cadastrar.cshtml" />
     <Content Include="Views\Filo\Cadastrar.cshtml" />
+    <Content Include="Views\Familia\Cadastrar.cshtml" />
+    <Content Include="Views\Genero\Cadastrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Denuncia\" />
-    <Folder Include="Views\Familia\" />
-    <Folder Include="Views\Genero\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

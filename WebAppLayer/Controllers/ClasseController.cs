@@ -23,7 +23,7 @@ namespace WebAppLayer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(Classe classe)
         {
-            ClasseBL.ValidarCadastro(classe);
+            ClasseBL.AdicionarClasse(classe);
             return RedirectToAction("Cadastrar", "Ordem");
         }
 

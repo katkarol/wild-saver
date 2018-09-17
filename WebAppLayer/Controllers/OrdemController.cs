@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebAppLayer.BusinessLogic;
 using WebAppLayer.DAL;
 using WebAppLayer.Models;
 
@@ -13,8 +14,7 @@ namespace WebAppLayer.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            ClasseDAL dal = new ClasseDAL();
-            IList<Classe> classes = dal.Lista();
+            IList<Classe> classes = ClasseDAL.Lista();
             ViewBag.Classes = classes;
 
             return View();
@@ -23,6 +23,7 @@ namespace WebAppLayer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(Ordem ordem)
         {
+            OrdemBL.AdicionarOrdem(ordem);
             return RedirectToAction("Cadastrar", "Familia");
         }
 

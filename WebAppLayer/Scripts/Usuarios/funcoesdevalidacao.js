@@ -91,12 +91,5 @@ function EmailValido(email) {
     }
 }
 
-function AdicionaExemplos() {
-    var cpf = $("#PessoaUsuaria_CPF");
 
-    cpf.on("input", function () {
-        var exemplo = $("#ExemploCpf").text;
-        exemplo = "Exemplo: 000.000.000-00";
-    });
-}
 
