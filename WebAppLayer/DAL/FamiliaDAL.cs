@@ -15,7 +15,7 @@ namespace WebAppLayer.DAL
         private static WildSaverContext contexto;
 
 
-        public void Adicionar(Familia f)
+        public static void Adicionar(Familia f)
         {
             contexto.Familias.Add(f);
             contexto.SaveChanges();

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppLayer.DAL;
 using WebAppLayer.Models;
+using WebAppLayer.BusinessLogic;
 
 namespace WebAppLayer.Controllers
 {
@@ -13,9 +14,7 @@ namespace WebAppLayer.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            ViewBag.Familia = new Familia();
-            OrdemDAL dal = new OrdemDAL();
-            IList<Ordem> ordens = dal.Lista();
+            IList<Ordem> ordens = OrdemDAL.Lista();
             ViewBag.Ordens = ordens;
 
             return View();
@@ -24,6 +23,7 @@ namespace WebAppLayer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(Familia familia)
         {
+            FamiliaBL.AdicionarFamilia(familia);
             return RedirectToAction("Cadastrar", "Genero");
 
         }
