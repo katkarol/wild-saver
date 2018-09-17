@@ -345,6 +345,8 @@
     <Content Include="Scripts\Familia\ValidacaoFamilia.js" />
     <Content Include="Scripts\Filo\FuncoesdeValidacoesFilo.js" />
     <Content Include="Scripts\Filo\ValidacoesFilo.js" />
+    <Content Include="Scripts\Genero\FuncoesdeValidacoesGenero.js" />
+    <Content Include="Scripts\Genero\ValidacoesGenero.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
