@@ -13,15 +13,15 @@ namespace WebAppLayer.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            GeneroDAL dal = new GeneroDAL();
-            IList<Genero> generos = dal.Lista();
+            
+            IList<Genero> generos = GeneroDAL.Lista();
             ViewBag.Generos = generos;
-
-            return View();
+            ViewBag.Regioes = new List<Regiao>();
+            return View(new List<Regiao>());
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Cadastrar(Animal animal, Regiao regiao)
+        public ActionResult Cadastrar(Animal animal, List<Regiao> regioes)
         {
             return RedirectToAction("Index", "Home");
         }
