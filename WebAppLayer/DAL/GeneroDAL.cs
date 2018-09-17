@@ -6,22 +6,22 @@ using WebAppLayer.Models;
 
 namespace WebAppLayer.DAL
 {
-    public class GeneroDAL
+    public class GeneroDAL : IDisposable
     {
         public GeneroDAL()
         {
             contexto = new WildSaverContext();
         }
-        private WildSaverContext contexto;
+        private static WildSaverContext contexto;
 
 
-        public void Adicionar(Genero g)
+        public static void Adicionar(Genero g)
         {
             contexto.Generos.Add(g);
             contexto.SaveChanges();
         }
 
-        public void Atualizar(Genero g)
+        public static void Atualizar(Genero g)
         {
             contexto.Update(g);
             contexto.SaveChanges();
@@ -33,12 +33,12 @@ namespace WebAppLayer.DAL
             contexto.Dispose();
         }
 
-        public IList<Genero> Lista()
+        public static IList<Genero> Lista()
         {
             return contexto.Generos.ToList();
         }
 
-        public void Remover(Genero g)
+        public static void Remover(Genero g)
         {
             contexto.Generos.Remove(g);
             contexto.SaveChanges();

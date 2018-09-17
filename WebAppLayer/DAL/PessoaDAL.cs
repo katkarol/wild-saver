@@ -6,22 +6,22 @@ using WebAppLayer.Models;
 
 namespace WebAppLayer.DAL
 {
-    public class PessoaDAL
+    public class PessoaDAL : IDisposable
     {
         public PessoaDAL()
         {
             contexto = new WildSaverContext();
         }
-        private WildSaverContext contexto;
+        private static WildSaverContext contexto;
 
 
-        public void Adicionar(Pessoa p)
+        public static void Adicionar(Pessoa p)
         {
             contexto.Pessoas.Add(p);
             contexto.SaveChanges();
         }
 
-        public void Atualizar(Pessoa p)
+        public static void Atualizar(Pessoa p)
         {
             contexto.Update(p);
             contexto.SaveChanges();
@@ -33,12 +33,12 @@ namespace WebAppLayer.DAL
             contexto.Dispose();
         }
 
-        public IList<Pessoa> Lista()
+        public static IList<Pessoa> Lista()
         {
             return contexto.Pessoas.ToList();
         }
 
-        public void Remover(Pessoa p)
+        public static void Remover(Pessoa p)
         {
             contexto.Pessoas.Remove(p);
             contexto.SaveChanges();

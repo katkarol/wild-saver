@@ -6,39 +6,39 @@ using WebAppLayer.Models;
 
 namespace WebAppLayer.DAL
 {
-    public class ClasseDAL
+    public class ClasseDAL : IDisposable
     {
         public ClasseDAL()
         {
             contexto = new WildSaverContext();
         }
-        private WildSaverContext contexto;
+        private static WildSaverContext contexto;
 
 
-        public void Adicionar(Classe c)
+        public static void Adicionar(Classe c)
         {
             contexto.Classes.Add(c);
             contexto.SaveChanges();
         }
 
-        public void Atualizar(Classe c)
+        public static void Atualizar(Classe c)
         {
             contexto.Update(c);
             contexto.SaveChanges();
 
         }
 
-        public void Dispose()
+        public  void Dispose()
         {
             contexto.Dispose();
         }
 
-        public IList<Classe> Lista()
+        public static IList<Classe> Lista()
         {
             return contexto.Classes.ToList();
         }
 
-        public void Remover(Classe c)
+        public static void Remover(Classe c)
         {
             contexto.Classes.Remove(c);
             contexto.SaveChanges();

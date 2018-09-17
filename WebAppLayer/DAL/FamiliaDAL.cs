@@ -6,13 +6,13 @@ using WebAppLayer.Models;
 
 namespace WebAppLayer.DAL
 {
-    public class FamiliaDAL
+    public class FamiliaDAL : IDisposable
     {
         public FamiliaDAL()
         {
             contexto = new WildSaverContext();
         }
-        private WildSaverContext contexto;
+        private static WildSaverContext contexto;
 
 
         public void Adicionar(Familia f)
@@ -21,7 +21,7 @@ namespace WebAppLayer.DAL
             contexto.SaveChanges();
         }
 
-        public void Atualizar(Familia f)
+        public static void Atualizar(Familia f)
         {
             contexto.Update(f);
             contexto.SaveChanges();
@@ -33,12 +33,12 @@ namespace WebAppLayer.DAL
             contexto.Dispose();
         }
 
-        public IList<Familia> Lista()
+        public static IList<Familia> Lista()
         {
             return contexto.Familias.ToList();
         }
 
-        public void Remover(Familia f)
+        public static void Remover(Familia f)
         {
             contexto.Familias.Remove(f);
             contexto.SaveChanges();

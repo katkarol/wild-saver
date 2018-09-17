@@ -6,22 +6,22 @@ using WebAppLayer.Models;
 
 namespace WebAppLayer.DAL
 {
-    public class OrdemDAL
+    public class OrdemDAL : IDisposable
     {
         public OrdemDAL()
         {
             contexto = new WildSaverContext();
         }
-        private WildSaverContext contexto;
+        private static WildSaverContext contexto;
 
 
-        public void Adicionar(Ordem o)
+        public static void Adicionar(Ordem o)
         {
             contexto.Ordens.Add(o);
             contexto.SaveChanges();
         }
 
-        public void Atualizar(Ordem o)
+        public static void Atualizar(Ordem o)
         {
             contexto.Update(o);
             contexto.SaveChanges();
@@ -33,12 +33,12 @@ namespace WebAppLayer.DAL
             contexto.Dispose();
         }
 
-        public IList<Ordem> Lista()
+        public static IList<Ordem> Lista()
         {
             return contexto.Ordens.ToList();
         }
 
-        public void Remover(Ordem o)
+        public static void Remover(Ordem o)
         {
             contexto.Ordens.Remove(o);
             contexto.SaveChanges();

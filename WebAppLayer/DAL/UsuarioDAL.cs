@@ -8,7 +8,7 @@ using WebAppLayer.Models;
 
 namespace WebAppLayer.DAL
 {
-    public class UsuarioDAL
+    public class UsuarioDAL : IDisposable
     {
         public UsuarioDAL()
         {
@@ -30,7 +30,7 @@ namespace WebAppLayer.DAL
 
         }
 
-        public static void Dispose()
+        public  void Dispose()
         {
             contexto.Dispose();
         }

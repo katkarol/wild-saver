@@ -6,22 +6,22 @@ using WebAppLayer.Models;
 
 namespace WebAppLayer.DAL
 {
-    public class EnderecoDAL
+    public class EnderecoDAL : IDisposable
     {
         public EnderecoDAL()
         {
             contexto = new WildSaverContext();
         }
-        private WildSaverContext contexto;
+        private static WildSaverContext contexto;
 
 
-        public void Adicionar(Endereco e)
+        public static void Adicionar(Endereco e)
         {
             contexto.Enderecos.Add(e);
             contexto.SaveChanges();
         }
 
-        public void Atualizar(Endereco e)
+        public static void Atualizar(Endereco e)
         {
             contexto.Update(e);
             contexto.SaveChanges();
@@ -33,12 +33,12 @@ namespace WebAppLayer.DAL
             contexto.Dispose();
         }
 
-        public IList<Endereco> Lista()
+        public static IList<Endereco> Lista()
         {
             return contexto.Enderecos.ToList();
         }
 
-        public void Remover(Endereco e)
+        public static void Remover(Endereco e)
         {
             contexto.Enderecos.Remove(e);
             contexto.SaveChanges();
