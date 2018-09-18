@@ -12,8 +12,8 @@ namespace WebAppLayer.BusinessLogic
     {
         public static void AdicionarConta(Usuario usuario)
         {
-            usuario.PessoaUsuaria.CPF.Replace(".", "").Replace("-", "");
-            usuario.PessoaUsuaria.Endereco.CEP.Replace("-", "");
+            usuario.PessoaUsuaria.CPF = usuario.PessoaUsuaria.CPF.Replace(".", "").Replace("-", "");
+            usuario.PessoaUsuaria.Endereco.CEP = usuario.PessoaUsuaria.Endereco.CEP.Replace("-", "");
             if (usuario.PessoaUsuaria.CPF.Length != 11)
             {
                 throw new Exception("CPF Inválido! Tente novamente");
