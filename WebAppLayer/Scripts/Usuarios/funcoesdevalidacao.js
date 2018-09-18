@@ -1,18 +1,16 @@
-﻿function ValidarSenha() {
-    var erro = document.querySelector("#SenhaDanger");
-    var Rerro = document.querySelector("#RepitaSenhaDanger");
-    erro.innerHTML = "";
-    Rerro.innerHTML = "";
+﻿function SenhaValida(Senha) {
 
-    var Senha = document.querySelector("#Senha").value;
-    var RSenha = document.querySelector("#Repita_Senha").value;
+    
     if (Senha.length < 6) {
-        erro.textContent = "A senha deve conter no mínimo 6 caracteres";
+        return false;
     }
+    
+    return true;
+}
+function SenhaCoincidentes(Senha, SenhaRepitida) {
     if (Senha != RSenha) {
-        Rerro.textContent = "As senhas não conicidem";
+        return false;
     }
-    return Senha;
 }
 function NomeValido(nome) {
     if (nome.length < 5 || nome.length > 60) {

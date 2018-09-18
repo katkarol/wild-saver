@@ -28,9 +28,18 @@ namespace WebAppLayer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(Usuario usuario)
         {
-           UsuarioBL.ValidacoesLogin(usuario);
-            return RedirectToAction("Index", "Home");
-
+            try
+            {
+                ViewBag.Erro = "";
+                UsuarioBL.ValidacoesLogin(usuario);
+                return RedirectToAction("Index", "Home");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Erro = ex.Message;
+                return View(usuario); 
+            }
+           
         }
         [HttpGet]
         public ActionResult CriarConta()
@@ -41,10 +50,20 @@ namespace WebAppLayer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CriarConta(Usuario usuario)
         {
-            
-            usuario.PapelUsuario = PapelUsuario.Usuario;
-            UsuarioBL.AdicionarConta(usuario);
-            return RedirectToAction("Index","Home");
+            try
+            {
+                ViewBag.Erro = "";
+                usuario.PapelUsuario = PapelUsuario.Usuario;
+                UsuarioBL.AdicionarConta(usuario);
+                return RedirectToAction("Index", "Home");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Erro = ex.Message;
+                return View(usuario);
+                
+            }   
+
         }
         [HttpGet]
         public ActionResult CadastarFuncionario()

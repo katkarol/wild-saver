@@ -12,7 +12,8 @@ function ObtemInformacoesFormulario() {
         uf: document.querySelector("#PessoaUsuaria_Endereco_UF").value,
         email: document.querySelector("#PessoaUsuaria_Email").value,
         login: document.querySelector("#Login").value,
-        senha: ValidarSenha()
+       senha:  document.querySelector("#Senha").value,
+       RSenha = document.querySelector("#Repita_Senha").value
     }
     return usuario;
 }
@@ -46,6 +47,13 @@ function ValidacaoCampos(usuario) {
         }
         if (!UFValido(usuario.uf)) {
             erros[8].textContent = "UF deve conter somente 2 caracteres";
+        }
+        if (!SenhaValida(usuario.senha)) {
+            erros[12].textContent = "A senha deve conter no mínimo 6 caracteres";
+        }
+        if (!SenhaCoincidentes(usuario.senha , usuario.RSenha)) {
+            erros[13].textContent = "As senhas não conicidem";
+
         }
         
 

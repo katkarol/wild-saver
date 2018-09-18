@@ -16,7 +16,7 @@ namespace WebAppLayer.BusinessLogic
             usuario.PessoaUsuaria.Endereco.CEP.Replace("-", "");
             if (usuario.PessoaUsuaria.CPF.Length != 11)
             {
-                throw new Exception("CPF Inválido!");
+                throw new Exception("CPF Inválido! Tente novamente");
 
             }
             if (usuario.PessoaUsuaria.Endereco.CEP.Length != 8)
