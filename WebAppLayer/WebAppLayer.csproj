@@ -225,6 +225,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BusinessLogic\AnimalBL.cs" />
     <Compile Include="BusinessLogic\ClasseBL.cs" />
     <Compile Include="BusinessLogic\FamiliaBL.cs" />
     <Compile Include="BusinessLogic\FiloBL.cs" />
@@ -304,6 +305,10 @@
     <Compile Include="Migrations\20180913144318_DenuciaAnimal.designer.cs">
       <DependentUpon>20180913144318_DenuciaAnimal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180920143353_estado-denuncia.cs" />
+    <Compile Include="Migrations\20180920143353_estado-denuncia.designer.cs">
+      <DependentUpon>20180920143353_estado-denuncia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\WildSaverContextModelSnapshot.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\AnimalRegiao.cs" />
@@ -311,6 +316,7 @@
     <Compile Include="Models\Denuncia.cs" />
     <Compile Include="Models\DenunciaAnimal.cs" />
     <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\Enums\EstadoDenuncia.cs" />
     <Compile Include="Models\Enums\PapelUsuario.cs" />
     <Compile Include="Models\Familia.cs" />
     <Compile Include="Models\Filo.cs" />
@@ -389,10 +395,10 @@
     <Content Include="Views\Filo\Cadastrar.cshtml" />
     <Content Include="Views\Familia\Cadastrar.cshtml" />
     <Content Include="Views\Genero\Cadastrar.cshtml" />
+    <Content Include="Views\Denuncia\Cadastrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Denuncia\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
