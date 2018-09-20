@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using WebAppLayer.Models.Enums;
 
 namespace WebAppLayer.Models
 {
@@ -19,5 +20,6 @@ namespace WebAppLayer.Models
         [Required]
         public string DescricaoAnimal { get; set; }
         public bool Anonimo { get; set; }
+        public EstadoDenuncia EstadoDenuncia { get; set; }
     }
 }

@@ -9,22 +9,27 @@ namespace WebAppLayer.Controllers
 {
     public class DenunciaController : Controller
     {
-        // GET: Denuncia
-        public ActionResult Index()
+       
+
+        [HttpGet]
+        public ActionResult Cadastrar()
         {
             return View();
         }
+        
+        [HttpPost]
+        public ActionResult Cadastrar(Denuncia denuncia)
+        {
+            try
+            {
+                return RedirectToAction("Index", "Home");
 
-        //[HttpGet]
-        //public ActionResult Cadastrar()
-        //{
-        //    return View();
-        //}
-        //
-        //[HttpPost]
-        //public ActionResult Cadastrar(Denuncia denuncia)
-        //{
-        //    return View();
-        //} 
+            }
+            catch (Exception)
+            {
+
+                return View(denuncia);
+            }
+        } 
     }
 }
