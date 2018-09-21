@@ -31,3 +31,4 @@ function ValidacaoCampos(classe) {
 
     return true;
 
+}
