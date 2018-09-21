@@ -10,7 +10,14 @@ namespace WebAppLayer.BusinessLogic
 {
     public class UsuarioBL
     {
-        public static void AdicionarConta(Usuario usuario)
+        private UsuarioDAL usuarioDAL;
+
+        public UsuarioBL( )
+        {
+            this.usuarioDAL = new UsuarioDAL();
+        }
+
+        public  void AdicionarConta(Usuario usuario)
         {
             usuario.PessoaUsuaria.CPF = usuario.PessoaUsuaria.CPF.Replace(".", "").Replace("-", "");
             usuario.PessoaUsuaria.Endereco.CEP = usuario.PessoaUsuaria.Endereco.CEP.Replace("-", "");
@@ -32,16 +39,19 @@ namespace WebAppLayer.BusinessLogic
             {
                 throw new Exception("Idade Inválida! Para cadastrar funcionario deve ser maior de 18 anos.");
             }
-            if (UsuarioDAL.ExisteLogin(usuario.Login ) != 0)
+            if (usuarioDAL.ExisteLogin(usuario.Login ) != 0)
             {
                 throw new Exception("Usuário login já existe");
             }
-            UsuarioDAL.Adicionar(usuario);
+            usuarioDAL.Adicionar(usuario);
+            HttpContext.Current.Session["USUARIO"] = "nomeDoUsuario";
+            HttpContext.Current.Session["SENHA"] = "senha";
+            HttpContext.Current.Session["PAPELUSUARIO"] = "papelUsuario";
 
         }
-        public static void ValidacoesLogin(Usuario usuario)
+        public  void ValidacoesLogin(Usuario usuario)
         {
-            Usuario u = UsuarioDAL.BuscarUsuarioSenha(usuario);
+            Usuario u = usuarioDAL.BuscarUsuarioSenha(usuario);
             if (u.Login != usuario.Login)
             {
                 throw new Exception("O usuario e/ou a senha estão incorretos");
@@ -52,6 +62,7 @@ namespace WebAppLayer.BusinessLogic
             }
             HttpContext.Current.Session["USUARIO"] = "nomeDoUsuario";
             HttpContext.Current.Session["SENHA"] = "senha";
+            HttpContext.Current.Session["PAPELUSUARIO"] = "papelUsuario";
         }
     }
 }

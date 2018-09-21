@@ -9,9 +9,15 @@ namespace WebAppLayer.BusinessLogic
 {
     public class FiloBL
     {
-        public static void AdicionarFilo(Filo filo)
+        private FiloDAL filoDAL;
+
+        public FiloBL()
         {
-            FiloDAL.Adicionar(filo);
+            this.filoDAL = new FiloDAL();
+        }
+        public  void AdicionarFilo(Filo filo)
+        {
+            filoDAL.Adicionar(filo);
         }
     }
 }

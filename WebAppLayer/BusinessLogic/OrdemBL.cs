@@ -9,13 +9,21 @@ namespace WebAppLayer.BusinessLogic
 {
     public class OrdemBL
     {
-        public static void AdicionarOrdem(Ordem ordem)
+        private OrdemDAL ordemDAL;
+        private ClasseDAL classeDAL;
+
+        public OrdemBL()
         {
-            if (ClasseDAL.Lista().Contains(ordem.Classe))
+            this.ordemDAL = new OrdemDAL();
+            this.classeDAL = new ClasseDAL();
+        }
+        public  void AdicionarOrdem(Ordem ordem)
+        {
+            if (classeDAL.Lista().Contains(ordem.Classe))
             {
                 throw new Exception("Classe inválida!");
             }
-            OrdemDAL.Adicionar(ordem);
+            ordemDAL.Adicionar(ordem);
         }
     }
 }

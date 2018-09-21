@@ -9,14 +9,24 @@ namespace WebAppLayer.BusinessLogic
 {
     public class FamiliaBL
     {
-        public static void AdicionarFamilia(Familia familia)
+        private OrdemDAL ordemDAL;
+        private FamiliaDAL familiaDAL;
+
+        public FamiliaBL()
         {
-            if (!OrdemDAL.Lista().Contains(familia.Ordem))
+            this.ordemDAL = new OrdemDAL();
+            this.familiaDAL = new FamiliaDAL();
+        }
+
+        public  void AdicionarFamilia(Familia familia)
+        {
+             
+            if (!ordemDAL.Lista().Contains(familia.Ordem))
             {
                 throw new Exception("Ordem inválida");
             }
 
-            FamiliaDAL.Adicionar(familia);
+            familiaDAL.Adicionar(familia);
         }
     }
 }

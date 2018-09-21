@@ -10,13 +10,21 @@ namespace WebAppLayer.BusinessLogic
 {
     public class GeneroBL
     {
-        public static void AdicionarGenero(Genero genero)
+        private GeneroDAL generoDAL;
+        private FamiliaDAL familiaDAL;
+
+        public GeneroBL()
         {
-            if (FamiliaDAL.Lista().Contains(genero.Familia))
+            this.generoDAL = new GeneroDAL();
+            this.familiaDAL = new FamiliaDAL();
+        }
+        public  void AdicionarGenero(Genero genero)
+        {
+            if (familiaDAL.Lista().Contains(genero.Familia))
             {
                 throw new Exception("Familia Inválida!");
             }
-            GeneroDAL.Adicionar(genero);
+            generoDAL.Adicionar(genero);
         }
     }
 }

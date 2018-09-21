@@ -9,14 +9,27 @@ namespace WebAppLayer.BusinessLogic
 {
     public class ClasseBL
     {
-        public static void AdicionarClasse(Classe classe )
+        private FiloDAL filoDAL;
+        private ClasseDAL classeDAL;
+  
+        public ClasseBL()
         {
-            if (!FiloDAL.Lista().Contains(classe.Filo))
+            this.filoDAL = new FiloDAL();
+            this.classeDAL = new ClasseDAL();
+        }
+
+        public void AdicionarClasse(Classe classe )
+        {
+            if (!filoDAL.Lista().Contains(classe.Filo))
             {
                 throw new Exception("Filo inválido!");
             }
-
-            ClasseDAL.Adicionar(classe);
+           
+            classeDAL.Adicionar(classe);
+        }
+        public IList<Classe> Lista()
+        {
+            return classeDAL.Lista();
         }
     }
 }
