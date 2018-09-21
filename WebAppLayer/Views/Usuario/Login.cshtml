@@ -15,7 +15,9 @@
     <hr />
     @if (!string.IsNullOrWhiteSpace(ViewBag.Erro))
     {
-        <span id="ErroGeral">@ViewBag.Erro</span>
+        <div class="alert alert-danger" role="alert">
+                 @erro
+               </div>
 
     }
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
