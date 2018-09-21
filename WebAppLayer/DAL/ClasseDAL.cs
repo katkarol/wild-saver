@@ -12,16 +12,16 @@ namespace WebAppLayer.DAL
         {
             contexto = new WildSaverContext();
         }
-        private static WildSaverContext contexto;
+        private  WildSaverContext contexto;
 
 
-        public static void Adicionar(Classe c)
+        public  void Adicionar(Classe c)
         {
             contexto.Classes.Add(c);
             contexto.SaveChanges();
         }
 
-        public static void Atualizar(Classe c)
+        public  void Atualizar(Classe c)
         {
             contexto.Update(c);
             contexto.SaveChanges();
@@ -33,12 +33,12 @@ namespace WebAppLayer.DAL
             contexto.Dispose();
         }
 
-        public static IList<Classe> Lista()
+        public  IList<Classe> Lista()
         {
             return contexto.Classes.ToList();
         }
 
-        public static void Remover(Classe c)
+        public  void Remover(Classe c)
         {
             contexto.Classes.Remove(c);
             contexto.SaveChanges();

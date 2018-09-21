@@ -14,16 +14,16 @@ namespace WebAppLayer.DAL
         {
             contexto = new WildSaverContext();
         }
-        private static WildSaverContext contexto;
+        private  WildSaverContext contexto;
 
 
-        public static void Adicionar(Usuario u)
+        public  void Adicionar(Usuario u)
         {
             contexto.Usuarios.Add(u);
             contexto.SaveChanges();
         }
 
-        public static void Atualizar(Usuario u)
+        public  void Atualizar(Usuario u)
         {
             contexto.Update(u);
             contexto.SaveChanges();
@@ -35,18 +35,18 @@ namespace WebAppLayer.DAL
             contexto.Dispose();
         }
 
-        public static IList<Usuario> Lista()
+        public  IList<Usuario> Lista()
         {
             return contexto.Usuarios.ToList();
         }
 
-        public static void Remover(Usuario u)
+        public  void Remover(Usuario u)
         {
             contexto.Usuarios.Remove(u);
             contexto.SaveChanges();
 
         }
-        public static Usuario BuscarUsuarioSenha(Usuario u)
+        public  Usuario BuscarUsuarioSenha(Usuario u)
         {
 
             using (contexto)
@@ -55,7 +55,7 @@ namespace WebAppLayer.DAL
 
             }
         }
-        public static int ExisteLogin (string login)
+        public  int ExisteLogin (string login)
         {
 
             using (contexto)

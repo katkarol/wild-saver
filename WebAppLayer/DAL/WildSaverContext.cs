@@ -19,7 +19,7 @@ namespace WebAppLayer.DAL
         internal DbSet<Pessoa> Pessoas { get; set; }
         internal DbSet<Regiao> Regioes { get; set; }
         internal DbSet<Animal> Animais { get; set; }
-        internal DbSet<Denuncia> Denucias { get; set; }
+        internal DbSet<Denuncia> Denuncias { get; set; }
 
 
 
@@ -46,7 +46,7 @@ namespace WebAppLayer.DAL
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder
-                    .UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Initial Catalog=WildSaverDB; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+                    .UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=WildSaverDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }
 
