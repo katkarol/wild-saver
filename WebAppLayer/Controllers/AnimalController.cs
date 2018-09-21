@@ -13,8 +13,8 @@ namespace WebAppLayer.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            
-            IList<Genero> generos = GeneroDAL.Lista();
+            GeneroDAL generoDAL = new GeneroDAL();
+            IList<Genero> generos = generoDAL.Lista();
             ViewBag.Generos = generos;
             ViewBag.Regioes = new List<Regiao>();
             return View(new List<Regiao>());

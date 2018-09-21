@@ -15,7 +15,8 @@ namespace WebAppLayer.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            IList<Familia> familias = FamiliaDAL.Lista();
+            FamiliaDAL familiaDAL = new FamiliaDAL();
+            IList<Familia> familias = familiaDAL.Lista();
             ViewBag.Familias = familias;
 
             return View();
@@ -24,8 +25,20 @@ namespace WebAppLayer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(Genero genero)
         {
-            GeneroBL.AdicionarGenero(genero);
-            return RedirectToAction("Cadastrar", "Animal");
+            try
+            {
+                ViewBag.Erro = "";
+                GeneroBL generoBL = new GeneroBL();
+                generoBL.AdicionarGenero(genero);
+                return RedirectToAction("Cadastrar", "Animal");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Erro = ex.Message;
+                return View(genero);
+             
+            }
+
 
         }
     }

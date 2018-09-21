@@ -14,7 +14,8 @@ namespace WebAppLayer.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            IList<Ordem> ordens = OrdemDAL.Lista();
+            OrdemDAL ordemDAL = new OrdemDAL();
+            IList<Ordem> ordens = ordemDAL.Lista();
             ViewBag.Ordens = ordens;
 
             return View();
@@ -23,7 +24,8 @@ namespace WebAppLayer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(Familia familia)
         {
-            FamiliaBL.AdicionarFamilia(familia);
+            FamiliaBL familiaBL = new FamiliaBL();
+            familiaBL.AdicionarFamilia(familia);
             return RedirectToAction("Cadastrar", "Genero");
 
         }

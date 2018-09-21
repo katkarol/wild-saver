@@ -31,7 +31,8 @@ namespace WebAppLayer.Controllers
             try
             {
                 ViewBag.Erro = "";
-                UsuarioBL.ValidacoesLogin(usuario);
+                UsuarioBL usuarioBL = new UsuarioBL();
+                usuarioBL.ValidacoesLogin(usuario);
                 return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
@@ -54,7 +55,9 @@ namespace WebAppLayer.Controllers
             {
                 ViewBag.Erro = "";
                 usuario.PapelUsuario = PapelUsuario.Usuario;
-                UsuarioBL.AdicionarConta(usuario);
+                UsuarioBL usuarioBL = new UsuarioBL();
+
+                usuarioBL.AdicionarConta(usuario);
                 return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
@@ -76,7 +79,8 @@ namespace WebAppLayer.Controllers
         public ActionResult CadastarFuncionario(Usuario usuario)
         {
             usuario.PapelUsuario = PapelUsuario.Funcionario;
-            UsuarioBL.AdicionarConta(usuario);
+            UsuarioBL usuarioBL = new UsuarioBL();
+            usuarioBL.AdicionarConta(usuario);
             return RedirectToAction("Index", "Home");
         }
         [HttpGet]

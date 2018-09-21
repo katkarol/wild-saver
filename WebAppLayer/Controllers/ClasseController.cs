@@ -14,6 +14,7 @@ namespace WebAppLayer.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
+            FiloDAL FiloDAL = new FiloDAL();
             IList<Filo> filos = FiloDAL.Lista();
             ViewBag.Filos = filos;
 
@@ -23,7 +24,8 @@ namespace WebAppLayer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(Classe classe)
         {
-            ClasseBL.AdicionarClasse(classe);
+            ClasseBL classeBL = new ClasseBL();
+            classeBL.AdicionarClasse(classe);
             return RedirectToAction("Cadastrar", "Ordem");
         }
 

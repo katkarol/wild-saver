@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebAppLayer.DAL;
 using WebAppLayer.Models;
 
 namespace WebAppLayer.Controllers
@@ -14,6 +15,10 @@ namespace WebAppLayer.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
+            AnimalDAL animalDAL = new AnimalDAL();
+            IList<Animal> animais = animalDAL.Lista();
+            ViewBag.Animais = animais;
+
             return View();
         }
         
@@ -22,12 +27,14 @@ namespace WebAppLayer.Controllers
         {
             try
             {
+                ViewBag.Erro = "";
+
                 return RedirectToAction("Index", "Home");
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                ViewBag.Erro = ex.Message;
                 return View(denuncia);
             }
         } 
