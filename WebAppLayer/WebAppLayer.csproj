@@ -227,6 +227,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BusinessLogic\AnimalBL.cs" />
     <Compile Include="BusinessLogic\ClasseBL.cs" />
+    <Compile Include="BusinessLogic\DenunciaBL.cs" />
     <Compile Include="BusinessLogic\FamiliaBL.cs" />
     <Compile Include="BusinessLogic\FiloBL.cs" />
     <Compile Include="BusinessLogic\GeneroBL.cs" />
@@ -241,7 +242,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrdemController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="DAL\AnimalDAL.cs" />
     <Compile Include="DAL\ClasseDAL.cs" />
+    <Compile Include="DAL\DenunciaDAL.cs" />
     <Compile Include="DAL\EnderecoDAL.cs" />
     <Compile Include="DAL\FamiliaDAL.cs" />
     <Compile Include="DAL\FiloDAL.cs" />
@@ -309,6 +312,10 @@
     <Compile Include="Migrations\20180920143353_estado-denuncia.designer.cs">
       <DependentUpon>20180920143353_estado-denuncia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180921122703_denuncias.cs" />
+    <Compile Include="Migrations\20180921122703_denuncias.designer.cs">
+      <DependentUpon>20180921122703_denuncias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\WildSaverContextModelSnapshot.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\AnimalRegiao.cs" />
@@ -332,12 +339,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\google-fonts.css" />
     <Content Include="Content\selectize.bootstrap2.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Imagens\bird_icon.png" />
+    <Content Include="Scripts\Animal\FuncoesValidacaoAnimal.js" />
     <Content Include="Scripts\Animal\ValidacaoAnimal.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -347,6 +356,8 @@
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Classe\FuncoesdeValidacoesClasse.js" />
     <Content Include="Scripts\Classe\ValidacaoClasse.js" />
+    <Content Include="Scripts\Denuncia\FuncoesValidacoesDenuncia.js" />
+    <Content Include="Scripts\Denuncia\ValidacoesDenuncia.js" />
     <Content Include="Scripts\Familia\FuncoesdeValidacaoFamilia.js" />
     <Content Include="Scripts\Familia\ValidacaoFamilia.js" />
     <Content Include="Scripts\Filo\FuncoesdeValidacoesFilo.js" />
