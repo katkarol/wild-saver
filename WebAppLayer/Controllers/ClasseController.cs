@@ -10,13 +10,16 @@ using WebAppLayer.BusinessLogic;
 namespace WebAppLayer.Controllers
 {
     public class ClasseController : Controller
-    {
+    { 
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            FiloDAL FiloDAL = new FiloDAL();
-            IList<Filo> filos = FiloDAL.Lista();
+            ClasseBL classeBL = new ClasseBL();
+            FiloDAL filoDAL = new FiloDAL();
+
+            IList<Filo> filos = filoDAL.Lista();
             ViewBag.Filos = filos;
+            ViewBag.Classes = classeBL.Lista();
 
             return View(new Classe());
         }
@@ -25,8 +28,18 @@ namespace WebAppLayer.Controllers
         public ActionResult Cadastrar(Classe classe)
         {
             ClasseBL classeBL = new ClasseBL();
-            classeBL.AdicionarClasse(classe);
-            return RedirectToAction("Cadastrar", "Ordem");
+            try
+            {
+                ViewBag.Erro = "";
+                classeBL.AdicionarClasse(classe);
+                return RedirectToAction("Cadastrar", "Ordem");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Erro = ex.Message;
+                return View(classe);
+            }
+            
         }
 
     }

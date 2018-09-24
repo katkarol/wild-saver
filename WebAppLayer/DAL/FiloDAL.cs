@@ -6,7 +6,7 @@ using WebAppLayer.Models;
 
 namespace WebAppLayer.DAL
 {
-    public class FiloDAL
+    public class FiloDAL :IDisposable
     {
         public FiloDAL()
         {

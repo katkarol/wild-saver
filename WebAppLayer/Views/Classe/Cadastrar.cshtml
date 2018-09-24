@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Cadastrar Classe";
     var filos = ViewBag.Filos ?? new List<Filo>();
+    var classes = ViewBag.Classes ?? new List<Classe>();
     var erro = ViewBag.Erro;
 }
 
@@ -13,57 +14,83 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <hr />
-    <h2>Cadastrar Classe</h2>
-    @if (!string.IsNullOrWhiteSpace(erro))
-    {
-        <div class="alert alert-danger" role="alert">
-            @erro
-        </div>
-    }
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.Label("model.NomePopular", "Nome Popular", htmlAttributes: new { @class = "control-label col-md-2" })
-
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NomePopular, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NomePopular, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Filo, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div>
-            <select id="Filo" class="form-control">
-                @foreach (var filo in filos)
-                {
-                    <option value="@filo.ID">
-                        @filo.Nome
-                    </option>
-                }
-            </select>
-
+    <div class="form-horizontal">
+        <hr />
+        <h2>Cadastrar Classe</h2>
+        @if (!string.IsNullOrWhiteSpace(erro))
+        {
+            <div class="alert alert-danger" role="alert">
+                @erro
+            </div>
+        }
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+            </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Cadastrar Classe" class="btn btn-default Botao" />
+            @Html.Label("model.NomePopular", "Nome Popular", htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NomePopular, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NomePopular, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Filo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                <select id="Filo" class="form-control">
+                    @foreach (var filo in filos)
+                    {
+                        <option value="@filo.ID">
+                            @filo.Nome
+                        </option>
+                    }
+                </select>
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Cadastrar Classe" class="btn btn-default Botao" />
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-   
+    <section>
+        <h3>Classe</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Nome Popular</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var classe in classes)
+                {
+                    <tr>
+                        <td>@classe.Nome</td>
+                        <td>@classe.NomePopular</td>
+                       
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+
+    </section>
+
+
+
+
 }
 <script src="~/Scripts/Validacoes.js"></script>
 <script src="~/Scripts/Classe/ValidacaoClasse.js"></script>
-<script src="~/Scripts/Classe/FuncoesdeValidacoesClasse.js"></script>    
-  
+<script src="~/Scripts/Classe/FuncoesdeValidacoesClasse.js"></script>
+
