@@ -3,7 +3,7 @@
 @{
     ViewBag.Tittle = "Cadastrar Denuncia";
     var animais = ViewBag.Animais ?? new List<Animal>();
-
+    var erro = ViewBag.Erro;
 }
 
 
@@ -13,8 +13,14 @@
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>Denuncia</h4>
+    <h4>Denunciar</h4>
     <hr />
+    @if (!string.IsNullOrWhiteSpace(erro))
+    {
+        <div class="alert alert-danger" role="alert">
+            @erro
+        </div>
+    }
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
@@ -88,28 +94,28 @@
         </div>
         <span class="informacoes"> Se caso não houver o animal cadastrado, descreva-o no campo abaixo</span>
     </div>
-        <div class="form-group">
-            @Html.Label("model.DescricaoAnimal", "Descreva o Animal", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextArea("model.DescricaoAnimal", new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DescricaoAnimal, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.Label("model.DescricaoAnimal", "Descreva o Animal", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextArea("model.DescricaoAnimal", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DescricaoAnimal, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.Label("model.Anonimo", "Marque se gostaria manter o Anonimato", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Anonimo)
-                    @Html.ValidationMessageFor(model => model.Anonimo, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Cadastrar Denuncia" class="btn btn-default Botao" />
+    <div class="form-group">
+        @Html.Label("model.Anonimo", "Marque se gostaria manter o Anonimato", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.Anonimo)
+                @Html.ValidationMessageFor(model => model.Anonimo, "", new { @class = "text-danger" })
             </div>
         </div>
     </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Cadastrar Denuncia" class="btn btn-default Botao" />
+        </div>
+    </div>
+</div>
     }

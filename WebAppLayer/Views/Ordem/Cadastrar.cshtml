@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Cadastrar Ordem";
     var classes = ViewBag.Classes ?? new List<Classe>();
+    var erro = ViewBag.Erro;
 }
 
 
@@ -12,47 +13,53 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Classe</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
-            </div>
+<div class="form-horizontal">
+    <h2> Cadastrar Ordem</h2>
+    <hr />
+    @if (!string.IsNullOrWhiteSpace(erro))
+    {
+        <div class="alert alert-danger" role="alert">
+            @erro
         </div>
-
-        <div class="form-group">
-            @Html.Label("model.NomePopular", "Nome Popular", htmlAttributes: new { @class = "control-label col-md-2" })
-
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NomePopular, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NomePopular, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Classe, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div>
-                <select id="classes" name="ordem.Genero.ID" class="form-control">
-                    @foreach (var classe in classes)
-                    {
-                        <option value="@classe.ID">
-                            @classe.NomePopular
-                        </option>
-                    }
-                </select>
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Cadastrar Ordem" class="btn btn-default Botao"/>
-            </div>
+    }
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.Label("model.NomePopular", "Nome Popular", htmlAttributes: new { @class = "control-label col-md-2" })
+
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NomePopular, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NomePopular, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Classe, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div>
+            <select id="classes" name="ordem.Genero.ID" class="form-control">
+                @foreach (var classe in classes)
+                {
+                    <option value="@classe.ID">
+                        @classe.NomePopular
+                    </option>
+                }
+            </select>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Cadastrar Ordem" class="btn btn-default Botao" />
+        </div>
+    </div>
+</div>
 }
 <script src="~/Scripts/Validacoes.js"></script>
 <script src="~/Scripts/Ordem/ValidaoesOrdem.js"></script>

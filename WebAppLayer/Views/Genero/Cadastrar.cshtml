@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Cadastrar Genero";
     var familias = ViewBag.Familias ?? new List<Familia>();
+    var erro = ViewBag.Erro;
 }
 
 
@@ -11,8 +12,14 @@
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>Cadastrar Genero</h4>
+    <h2>Cadastrar Genero</h2>
     <hr />
+    @if (!string.IsNullOrWhiteSpace(erro))
+    {
+        <div class="alert alert-danger" role="alert">
+            @erro
+        </div>
+    }
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -45,9 +52,10 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Cadastrar Genero" class="btn btn-default Botao"/>
+                <input type="submit" value="Cadastrar Genero" class="btn btn-default Botao" />
             </div>
         </div>
     </div>
-    }
+    </div>
+}
 

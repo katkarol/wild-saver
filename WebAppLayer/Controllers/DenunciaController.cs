@@ -28,6 +28,7 @@ namespace WebAppLayer.Controllers
             try
             {
                 ViewBag.Erro = "";
+                denuncia.EstadoDenuncia = Models.Enums.EstadoDenuncia.Aberto;
 
                 return RedirectToAction("Index", "Home");
 

@@ -316,6 +316,10 @@
     <Compile Include="Migrations\20180921122703_denuncias.designer.cs">
       <DependentUpon>20180921122703_denuncias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180924104417_teste.cs" />
+    <Compile Include="Migrations\20180924104417_teste.designer.cs">
+      <DependentUpon>20180924104417_teste.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\WildSaverContextModelSnapshot.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\AnimalRegiao.cs" />

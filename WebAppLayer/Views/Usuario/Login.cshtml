@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Login";
+    var erro = ViewBag.Erro;
     
 }
 
@@ -13,7 +14,7 @@
     <h4>Login</h4>
 
     <hr />
-    @if (!string.IsNullOrWhiteSpace(ViewBag.Erro))
+    @if (!string.IsNullOrWhiteSpace(erro))
     {
         <div class="alert alert-danger" role="alert">
                  @erro
@@ -54,8 +55,6 @@
 </div>
 }
 
-<div>
-    @Html.ActionLink("Voltar", "Index", "Home")
-</div>
+
 <script src="~/Scripts/Validacoes.js"></script>
 <script src="~/Scripts/Usuarios/ValidacaoLogin.js"></script>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebAppLayer.BusinessLogic;
 using WebAppLayer.Models;
 
 namespace WebAppLayer.Controllers
@@ -19,7 +20,19 @@ namespace WebAppLayer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(Filo filo)
         {
-            return RedirectToAction("Cadastrar", "Classe");
+            try
+            {
+                ViewBag.Erro = "";
+                FiloBL filobl = new FiloBL();
+                filobl.AdicionarFilo(filo);
+                return RedirectToAction("Cadastrar", "Classe");
+
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Erro = ex.Message;
+                return View(filo);
+            }
 
         }
     }

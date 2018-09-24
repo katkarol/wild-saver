@@ -10,20 +10,34 @@ namespace WebAppLayer.Controllers
 {
     public class AnimalController : Controller
     {
+        protected AnimalController()
+        {
+             generoDAL = new GeneroDAL();
+
+        }
+        private GeneroDAL generoDAL;
+
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            GeneroDAL generoDAL = new GeneroDAL();
             IList<Genero> generos = generoDAL.Lista();
             ViewBag.Generos = generos;
-            ViewBag.Regioes = new List<Regiao>();
-            return View(new List<Regiao>());
+            ViewBag.Regioes = new List<AnimalRegiao>();
+            return View(new List<AnimalRegiao>());
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Cadastrar(Animal animal, List<Regiao> regioes)
+        public ActionResult Cadastrar(Animal animal, List<AnimalRegiao> regioes)
         {
-            return RedirectToAction("Index", "Home");
+            try
+            {
+                return RedirectToAction("Index", "Home");
+
+            }
+            catch (Exception)
+            {
+                return View(animal);
+            }
         }
     }
 }

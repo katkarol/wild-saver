@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Cadastrar Classe";
     var filos = ViewBag.Filos ?? new List<Filo>();
+    var erro = ViewBag.Erro;
 }
 
 <h2>Cadastrar Classe</h2>
@@ -14,6 +15,13 @@
 
 <div class="form-horizontal">
     <hr />
+    <h2>Cadastrar Classe</h2>
+    @if (!string.IsNullOrWhiteSpace(erro))
+    {
+        <div class="alert alert-danger" role="alert">
+            @erro
+        </div>
+    }
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -47,11 +55,11 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Cadastrar Classe" class="btn btn-default Botao"/>
+                <input type="submit" value="Cadastrar Classe" class="btn btn-default Botao" />
             </div>
         </div>
     </div>
-    </div>
+</div>
 
    
 }
