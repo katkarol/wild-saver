@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using WebAppLayer.DAL;
+using WebAppLayer.Models;
 
 namespace WebAppLayer.BusinessLogic
 {
@@ -14,9 +15,9 @@ namespace WebAppLayer.BusinessLogic
         {
             this.noticiaDAL = new NoticiaDAL();
         }
-       public void AdicionarNoticia()
+       public void AdicionarNoticia(Noticia n)
         {
-
+            noticiaDAL.Adicionar(n);
         }
     }
 }
