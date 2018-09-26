@@ -231,6 +231,7 @@
     <Compile Include="BusinessLogic\FamiliaBL.cs" />
     <Compile Include="BusinessLogic\FiloBL.cs" />
     <Compile Include="BusinessLogic\GeneroBL.cs" />
+    <Compile Include="BusinessLogic\NoticiaBL.cs" />
     <Compile Include="BusinessLogic\OrdemBL.cs" />
     <Compile Include="BusinessLogic\UsuarioBL.cs" />
     <Compile Include="Controllers\AnimalController.cs" />
@@ -240,6 +241,7 @@
     <Compile Include="Controllers\FiloController.cs" />
     <Compile Include="Controllers\GeneroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NoticiaController.cs" />
     <Compile Include="Controllers\OrdemController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAL\AnimalDAL.cs" />
@@ -249,8 +251,10 @@
     <Compile Include="DAL\FamiliaDAL.cs" />
     <Compile Include="DAL\FiloDAL.cs" />
     <Compile Include="DAL\GeneroDAL.cs" />
+    <Compile Include="DAL\NoticiaDAL.cs" />
     <Compile Include="DAL\OrdemDAL.cs" />
     <Compile Include="DAL\PessoaDAL.cs" />
+    <Compile Include="DAL\RegiaoDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
     <Compile Include="DAL\WildSaverContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -328,6 +332,7 @@
     <Compile Include="Models\Familia.cs" />
     <Compile Include="Models\Filo.cs" />
     <Compile Include="Models\Genero.cs" />
+    <Compile Include="Models\Noticia.cs" />
     <Compile Include="Models\Ordem.cs" />
     <Compile Include="Models\Pessoa.cs" />
     <Compile Include="Models\Regiao.cs" />
@@ -407,6 +412,7 @@
     <Content Include="Views\Familia\Cadastrar.cshtml" />
     <Content Include="Views\Genero\Cadastrar.cshtml" />
     <Content Include="Views\Denuncia\Cadastrar.cshtml" />
+    <Content Include="Views\Noticia\Cadastrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

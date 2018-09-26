@@ -18,6 +18,10 @@ namespace WebAppLayer.BusinessLogic
 
         public void AdicionarDenuncia(Denuncia denuncia)
         {
+
+
+            denuncia.EstadoDenuncia = Models.Enums.EstadoDenuncia.Aberto;
+            denuncia.DataInsercao = DateTime.Now;
             denunciaDAL.Adicionar(denuncia);
 
         }
