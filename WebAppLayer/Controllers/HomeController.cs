@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebAppLayer.DAL;
 
 namespace WebAppLayer.Controllers
 {
@@ -10,6 +11,8 @@ namespace WebAppLayer.Controllers
     {
         public ActionResult Index()
         {
+            NoticiaDAL noticiaDAL = new NoticiaDAL();
+            ViewBag.Noticias= noticiaDAL.Lista().Take(4).ToList();
             return View();
         }
 
