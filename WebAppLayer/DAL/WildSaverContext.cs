@@ -20,6 +20,7 @@ namespace WebAppLayer.DAL
         internal DbSet<Regiao> Regioes { get; set; }
         internal DbSet<Animal> Animais { get; set; }
         internal DbSet<Denuncia> Denuncias { get; set; }
+        internal DbSet<Noticia> Noticias { get; set; }
 
 
 
