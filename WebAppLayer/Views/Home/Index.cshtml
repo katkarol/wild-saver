@@ -1,31 +1,40 @@
 ﻿@{
     ViewBag.Title = "Página Inicial";
+    var noticias = ViewBag.Noticias;
+}
+@for (int i = 0; i < noticias.Count; i++)
+{
+
+    <div class="jumbotron">
+        <h1>@noticias[0].Titulo</h1>
+        <p class="lead">@noticias[0].Resumo</p>
+        <p><a href="@noticias[0].Link" class="btn btn-primary btn-lg">Leia mais </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>21 espécies de plantas que ajudam a salvar as abelhas</h2>
+            <p>
+                As abelhas são responsáveis pela polinização das plantas, tarefa essencial para a produção de alimentos.
+                Porém, devido à poluição, elas têm sido cada vez menos comuns, principalmente em áreas urbanas,
+                e uma das formas de reverter naturalmente este cenário é promovendoo plantiode plantas que as atraem
+            </p>
+            <p><a class="btn btn-default" href="http://ciclovivo.com.br/planeta/meio-ambiente/21-especies-de-plantas-que-ajudam-a-salvar-as-abelhas/">Leia mais</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Por que animais marinhos confundem plástico com comida?</h2>
+            <p>Muitas espécies marinhas acabam confundindo o plástico com comida. Como isso acontece? A resposta está relacionada a odores que esses resíduos que poluem cada vez mais os oceanos liberam.</p>
+            <p><a class="btn btn-default" href="https://g1.globo.com/natureza/noticia/2018/09/17/por-que-animais-marinhos-confundem-plastico-com-comida.ghtml">Leia mais</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Derretimento acelera e Antártica perde 219 bilhões de toneladas de gelo ao ano</h2>
+            <p>Nível do mar global aumentou 7,6 milímetros desde 1992 devido ao degelo, sendo dois quintos deste valor apenas nos últimos cinco anos.</p>
+            <p><a class="btn btn-default" href="https://veja.abril.com.br/ciencia/derretimento-acelera-e-antartica-perde-219-bi-de-toneladas-de-gelo-ao-ano/">Leia mais</a></p>
+        </div>
+    </div>
 }
 
-<div class="jumbotron">
-    <h1>Conheça alguns animais ameaçados de extinção no Brasil</h1>
-    <p class="lead">O Brasil é considerado um dos países mais ricos em biodiversidade. Porém, segundo o Ministério do Meio Ambiente e o Instituto Chico Mendes de Conservação da Biodiversidade existem mais de 1000 espécies de animais em risco de extinção no país.</p>
-    <p><a href="https://www.todamateria.com.br/animais-em-extincao-no-brasil/" class="btn btn-primary btn-lg">Leia mais </a>
-</div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>21 espécies de plantas que ajudam a salvar as abelhas</h2>
-        <p>
-            As abelhas são responsáveis pela polinização das plantas, tarefa essencial para a produção de alimentos. 
-            Porém, devido à poluição, elas têm sido cada vez menos comuns, principalmente em áreas urbanas,
-            e uma das formas de reverter naturalmente este cenário é promovendoo plantiode plantas que as atraem
-        </p>
-        <p><a class="btn btn-default" href="http://ciclovivo.com.br/planeta/meio-ambiente/21-especies-de-plantas-que-ajudam-a-salvar-as-abelhas/">Leia mais</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Por que animais marinhos confundem plástico com comida?</h2>
-        <p>Muitas espécies marinhas acabam confundindo o plástico com comida. Como isso acontece? A resposta está relacionada a odores que esses resíduos que poluem cada vez mais os oceanos liberam.</p>
-        <p><a class="btn btn-default" href="https://g1.globo.com/natureza/noticia/2018/09/17/por-que-animais-marinhos-confundem-plastico-com-comida.ghtml">Leia mais</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Derretimento acelera e Antártica perde 219 bilhões de toneladas de gelo ao ano</h2>
-        <p>Nível do mar global aumentou 7,6 milímetros desde 1992 devido ao degelo, sendo dois quintos deste valor apenas nos últimos cinco anos.</p>
-        <p><a class="btn btn-default" href="https://veja.abril.com.br/ciencia/derretimento-acelera-e-antartica-perde-219-bi-de-toneladas-de-gelo-ao-ano/">Leia mais</a></p>
-    </div>
-</div>
+
+
+
