@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Página Inicial";
     var noticias = ViewBag.Noticias;
+
 }
 @for (int i = 0; i < noticias.Count; i++)
 {
@@ -10,26 +11,22 @@
         <p class="lead">@noticias[0].Resumo</p>
         <p><a href="@noticias[0].Link" class="btn btn-primary btn-lg">Leia mais </a>
     </div>
-
+    <span>Logo mias, teremos o nosso próprio blog de notícias</span>
     <div class="row">
         <div class="col-md-4">
-            <h2>21 espécies de plantas que ajudam a salvar as abelhas</h2>
-            <p>
-                As abelhas são responsáveis pela polinização das plantas, tarefa essencial para a produção de alimentos.
-                Porém, devido à poluição, elas têm sido cada vez menos comuns, principalmente em áreas urbanas,
-                e uma das formas de reverter naturalmente este cenário é promovendoo plantiode plantas que as atraem
-            </p>
-            <p><a class="btn btn-default" href="http://ciclovivo.com.br/planeta/meio-ambiente/21-especies-de-plantas-que-ajudam-a-salvar-as-abelhas/">Leia mais</a></p>
+            <h2>@noticias[1].Titulo</h2>
+            <p>@noticias[1].Resumo </p>
+            <p><a class="btn btn-default" href="@noticias[1].Link">Leia mais</a></p>
         </div>
         <div class="col-md-4">
-            <h2>Por que animais marinhos confundem plástico com comida?</h2>
-            <p>Muitas espécies marinhas acabam confundindo o plástico com comida. Como isso acontece? A resposta está relacionada a odores que esses resíduos que poluem cada vez mais os oceanos liberam.</p>
-            <p><a class="btn btn-default" href="https://g1.globo.com/natureza/noticia/2018/09/17/por-que-animais-marinhos-confundem-plastico-com-comida.ghtml">Leia mais</a></p>
+            <h2>@noticias[2].Titulo</h2>
+            <p>@noticias[2].Resumo </p>
+            <p><a class="btn btn-default" href="@noticias[2].Link">Leia mais</a></p>
         </div>
         <div class="col-md-4">
-            <h2>Derretimento acelera e Antártica perde 219 bilhões de toneladas de gelo ao ano</h2>
-            <p>Nível do mar global aumentou 7,6 milímetros desde 1992 devido ao degelo, sendo dois quintos deste valor apenas nos últimos cinco anos.</p>
-            <p><a class="btn btn-default" href="https://veja.abril.com.br/ciencia/derretimento-acelera-e-antartica-perde-219-bi-de-toneladas-de-gelo-ao-ano/">Leia mais</a></p>
+            <h2>@noticias[2].Titulo</h2>
+            <p>@noticias[3].Resumo </p>
+            <p><a class="btn btn-default" href="@noticias[3].Link">Leia mais</a></p>
         </div>
     </div>
 }
