@@ -17,7 +17,6 @@ namespace WebAppLayer.BusinessLogic
         }
        public void AdicionarNoticia(Noticia n)
         {
-          // n.DataPublicacao.ToShortTimeString
             noticiaDAL.Adicionar(n);
         }
     }

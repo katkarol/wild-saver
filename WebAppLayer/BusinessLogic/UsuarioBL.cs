@@ -44,9 +44,9 @@ namespace WebAppLayer.BusinessLogic
                 throw new Exception("Usuário login já existe");
             }
             usuarioDAL.Adicionar(usuario);
-            HttpContext.Current.Session["USUARIO"] = "nomeDoUsuario";
-            HttpContext.Current.Session["SENHA"] = "senha";
-            HttpContext.Current.Session["PAPELUSUARIO"] = "papelUsuario";
+            HttpContext.Current.Session["USUARIO"] = usuario.Login;
+            HttpContext.Current.Session["SENHA"] = usuario.Senha;
+            HttpContext.Current.Session["PAPELUSUARIO"] = usuario.PapelUsuario;
 
         }
         public  void ValidacoesLogin(Usuario usuario)
@@ -60,9 +60,10 @@ namespace WebAppLayer.BusinessLogic
             {
                 throw new Exception("O usuario e/ou a senha estão incorretos");
             }
-            HttpContext.Current.Session["USUARIO"] = "nomeDoUsuario";
-            HttpContext.Current.Session["SENHA"] = "senha";
-            HttpContext.Current.Session["PAPELUSUARIO"] = "papelUsuario";
+           
+            HttpContext.Current.Session["USUARIO"] = usuario.Login;
+            HttpContext.Current.Session["SENHA"] = usuario.Senha;
+            HttpContext.Current.Session["PAPELUSUARIO"] = usuario.PapelUsuario;
         }
     }
 }
