@@ -257,6 +257,8 @@
     <Compile Include="DAL\RegiaoDAL.cs" />
     <Compile Include="DAL\UsuarioDAL.cs" />
     <Compile Include="DAL\WildSaverContext.cs" />
+    <Compile Include="Filtros\AutorizacaoFuncionarioFilterAttribute.cs" />
+    <Compile Include="Filtros\AutorizacaoUsuarioFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -355,6 +357,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Imagens\bird_icon.png" />
+    <Content Include="Imagens\erro.png" />
     <Content Include="Scripts\Animal\FuncoesValidacaoAnimal.js" />
     <Content Include="Scripts\Animal\ValidacaoAnimal.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -417,6 +420,7 @@
     <Content Include="Views\Genero\Cadastrar.cshtml" />
     <Content Include="Views\Denuncia\Cadastrar.cshtml" />
     <Content Include="Views\Noticia\Cadastrar.cshtml" />
+    <Content Include="Views\Home\Erro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
