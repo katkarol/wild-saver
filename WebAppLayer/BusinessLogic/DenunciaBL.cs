@@ -18,6 +18,11 @@ namespace WebAppLayer.BusinessLogic
 
         public void AdicionarDenuncia(Denuncia denuncia)
         {
+            if (denuncia.DataDaDenuncia > DateTime.Now)
+            {
+                throw new Exception("Data inválida!");
+            }
+             
 
 
             denuncia.EstadoDenuncia = Models.Enums.EstadoDenuncia.Aberto;
