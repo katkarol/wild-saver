@@ -13,6 +13,7 @@ namespace WebAppLayer.Controllers
         {
             NoticiaDAL noticiaDAL = new NoticiaDAL();
             ViewBag.Noticias= noticiaDAL.Lista().Take(4).ToList();
+
             return View();
         }
 
