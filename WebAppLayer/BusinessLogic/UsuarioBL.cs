@@ -45,7 +45,6 @@ namespace WebAppLayer.BusinessLogic
             }
             usuarioDAL.Adicionar(usuario);
             HttpContext.Current.Session["USUARIO"] = usuario.Login;
-            HttpContext.Current.Session["SENHA"] = usuario.Senha;
             HttpContext.Current.Session["PAPELUSUARIO"] = usuario.PapelUsuario;
 
         }
@@ -62,7 +61,6 @@ namespace WebAppLayer.BusinessLogic
             }
            
             HttpContext.Current.Session["USUARIO"] = usuario.Login;
-            HttpContext.Current.Session["SENHA"] = usuario.Senha;
             HttpContext.Current.Session["PAPELUSUARIO"] = usuario.PapelUsuario;
         }
     }
