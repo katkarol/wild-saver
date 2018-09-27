@@ -32,5 +32,10 @@ namespace WebAppLayer.Controllers
 
             return View();
         }
+        public ActionResult Erro()
+        {
+            
+            return View();
+        }
     }
 }

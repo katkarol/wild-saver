@@ -5,9 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppLayer.DAL;
 using WebAppLayer.Models;
+using WebAppLayer.Filtros;
 
 namespace WebAppLayer.Controllers
 {
+    [AutorizacaoUsuarioFilter]
     public class DenunciaController : Controller
     {
        

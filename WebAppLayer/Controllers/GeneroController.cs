@@ -6,9 +6,12 @@ using System.Web.Mvc;
 using WebAppLayer.DAL;
 using WebAppLayer.Models;
 using WebAppLayer.BusinessLogic;
+using WebAppLayer.Filtros;
+
 
 namespace WebAppLayer.Controllers
 {
+    [AutorizacaoFuncionarioFilter]
     public class GeneroController : Controller
     {
         

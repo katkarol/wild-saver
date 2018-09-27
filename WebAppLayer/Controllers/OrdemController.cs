@@ -6,9 +6,12 @@ using System.Web.Mvc;
 using WebAppLayer.BusinessLogic;
 using WebAppLayer.DAL;
 using WebAppLayer.Models;
+using WebAppLayer.Filtros;
+
 
 namespace WebAppLayer.Controllers
 {
+    [AutorizacaoFuncionarioFilter]
     public class OrdemController : Controller
     {
         [HttpGet]

@@ -5,9 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppLayer.DAL;
 using WebAppLayer.Models;
+using WebAppLayer.Filtros;
+
 
 namespace WebAppLayer.Controllers
 {
+    [AutorizacaoUsuarioFilter]
     public class NoticiaController : Controller
     {
         // GET: Noticia
@@ -16,6 +19,7 @@ namespace WebAppLayer.Controllers
             return View();
         }
         [HttpGet]
+        [AutorizacaoFuncionarioFilter]
         public ActionResult Cadastrar()
         {
 

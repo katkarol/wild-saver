@@ -5,9 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppLayer.BusinessLogic;
 using WebAppLayer.Models;
+using WebAppLayer.Filtros;
 
 namespace WebAppLayer.Controllers
 {
+    [AutorizacaoFuncionarioFilter]
     public class FiloController : Controller
     {
       

@@ -5,21 +5,20 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppLayer.DAL;
 using WebAppLayer.Models;
+using WebAppLayer.Filtros;
+
 
 namespace WebAppLayer.Controllers
 {
+    [AutorizacaoFuncionarioFilter]
     public class AnimalController : Controller
     {
-        protected AnimalController()
-        {
-             generoDAL = new GeneroDAL();
-
-        }
-        private GeneroDAL generoDAL;
+        
 
         [HttpGet]
         public ActionResult Cadastrar()
         {
+            GeneroDAL generoDAL = new GeneroDAL();
             IList<Genero> generos = generoDAL.Lista();
             ViewBag.Generos = generos;
             ViewBag.Regioes = new List<AnimalRegiao>();
