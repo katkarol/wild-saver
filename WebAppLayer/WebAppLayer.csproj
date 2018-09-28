@@ -259,6 +259,7 @@
     <Compile Include="DAL\WildSaverContext.cs" />
     <Compile Include="Filtros\AutorizacaoFuncionarioFilterAttribute.cs" />
     <Compile Include="Filtros\AutorizacaoUsuarioFilterAttribute.cs" />
+    <Compile Include="Filtros\Mudanca-Navbar.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
