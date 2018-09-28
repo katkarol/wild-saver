@@ -10,6 +10,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    @using WebAppLayer.Filtros;
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -22,10 +23,23 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Sobre nós", "Sobre", "Home")</li>
-                    <li>@Html.ActionLink("Contato", "Contato", "Home")</li>
-                    <li>@Html.ActionLink("Denunciar", "Cadastrar", "Denuncia")</li>
+
+                    @if (Mudanca_Navbar.VerificarUsuario())
+                    {
+                        <li>@Html.ActionLink("Sobre nós", "Sobre", "Home")</li>
+                        <li>@Html.ActionLink("Contato", "Contato", "Home")</li>
+                        <li>@Html.ActionLink("Denunciar", "Cadastrar", "Denuncia")</li>
+                    }
+                    @if (Mudanca_Navbar.VerificarFuncionario())
+                    {
+                        <li>@Html.ActionLink("Filo", "Cadastrar", "Filo")</li>
+                        <li>@Html.ActionLink("Classe", "Cadastrar", "Classe")</li>
+                        <li>@Html.ActionLink("Ordem", "Cadastrar", "Ordem")</li>
+                        <li>@Html.ActionLink("Família", "Cadastrar", "Ordem")</li>
+                        <li>@Html.ActionLink("Gênero", "Cadastrar", "Ordem")</li>
+                        <li>@Html.ActionLink("Animal", "Cadastrar", "Animal")</li>
+                    }
+
 
                     <li>@Html.ActionLink("Login", "Login", "Usuario")</li>
                     <li>@Html.ActionLink("Criar Conta", "CriarConta", "Usuario")</li>
