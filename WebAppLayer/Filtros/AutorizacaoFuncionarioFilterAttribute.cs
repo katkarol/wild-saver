@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using WebAppLayer.Models.Enums;
-
 namespace WebAppLayer.Filtros
 {
     public class AutorizacaoFuncionarioFilterAttribute : ActionFilterAttribute
@@ -19,8 +18,9 @@ namespace WebAppLayer.Filtros
                 filterContext.Result = new RedirectToRouteResult(
                 new RouteValueDictionary(
                 new { action = "Login", controller = "Usuario" }));
+                
             }
-            if (papelUsuario == null||(PapelUsuario)papelUsuario != PapelUsuario.Funcionario)
+            else if ((PapelUsuario)papelUsuario == PapelUsuario.Usuario)
             {
                 filterContext.Result = new RedirectToRouteResult(
                new RouteValueDictionary(
