@@ -1,44 +1,60 @@
 ﻿@{
-    ViewBag.Title = "Página Inicial";
-    var noticias = ViewBag.Noticias;
+                /**/
+
+                ViewBag.Title = "Página Inicial";
+                var noticias = ViewBag.Noticias;
 
 }
-@for (int i = 0; i < 1; i++)
-{
+@{
 
-    <div class="jumbotron">
-        <h1>@noticias[3].Titulo</h1>
-        <p class="lead">@noticias[3].Resumo</p>
-        <p>Postado: @noticias[3].DataPublicacao.ToShortTimeString()</p>
-        <p><a href="@noticias[3].Link" class="btn btn-primary btn-lg">Leia mais </a>
-    </div>
-    <span>Logo mais, teremos o nosso próprio blog de notícias</span>
-    <div class="row">
-        <div class="col-md-4">
-            <h2>@noticias[2].Titulo</h2>
-            <p>@noticias[2].Resumo </p>
-            <p>Postado: @noticias[2].DataPublicacao.ToShortTimeString()</p>
+    if (noticias != null && noticias.Count > 0)
+    {
 
-            <p><a class="btn btn-default" href="@noticias[2].Link">Leia mais</a></p>
+        for (int i = 0; i < 1; i++)
+        {
+
+            <div class="jumbotron">
+                <h1>@noticias[3].Titulo</h1>
+                <p class="lead">@noticias[3].Resumo</p>
+                <p>Postado: @noticias[3].DataPublicacao.ToShortTimeString()</p>
+                <p><a href="@noticias[3].Link" class="btn btn-primary btn-lg">Leia mais </a>
+            </div>
+            <span>Logo mais, teremos o nosso próprio blog de notícias</span>
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>@noticias[2].Titulo</h2>
+                    <p>@noticias[2].Resumo </p>
+                    <p>Postado: @noticias[2].DataPublicacao.ToShortTimeString()</p>
+
+                    <p><a class="btn btn-default" href="@noticias[2].Link">Leia mais</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h2>@noticias[1].Titulo</h2>
+                    <p>@noticias[1].Resumo </p>
+                    <p>Postado: @noticias[1].DataPublicacao.ToShortTimeString()</p>
+
+                    <p><a class="btn btn-default" href="@noticias[1].Link">Leia mais</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h2>@noticias[0].Titulo</h2>
+                    <p>@noticias[0].Resumo </p>
+                    <p>Postado: @noticias[0].DataPublicacao.ToShortTimeString()</p>
+
+                    <p><a class="btn btn-default" href="@noticias[0].Link">Leia mais</a></p>
+                </div>
+            </div>
+        }
+
+
+
+    }
+    else
+    {
+        <div class="jumbotron">
+            <h1>Wild Saver</h1>
+            <p class="lead">Salvando animais desde 2018</p>
         </div>
-        <div class="col-md-4">
-            <h2>@noticias[1].Titulo</h2>
-            <p>@noticias[1].Resumo </p>
-            <p>Postado: @noticias[1].DataPublicacao.ToShortTimeString()</p>
-
-            <p><a class="btn btn-default" href="@noticias[1].Link">Leia mais</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>@noticias[0].Titulo</h2>
-            <p>@noticias[0].Resumo </p>
-            <p>Postado: @noticias[0].DataPublicacao.ToShortTimeString()</p>
-
-            <p><a class="btn btn-default" href="@noticias[0].Link">Leia mais</a></p>
-        </div>
-    </div>
+        <span>Nenhuma notícia para exibir no momento</span>
+    }
 }
-
-
-
-
 

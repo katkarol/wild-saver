@@ -8,60 +8,59 @@ using WebAppLayer.Models;
 
 namespace WebAppLayer.DAL
 {
-    public class UsuarioDAL : IDisposable
+    public class UsuarioDAL
     {
-        public UsuarioDAL()
+        public void Adicionar(Usuario u)
         {
-            contexto = new WildSaverContext();
-        }
-        private  WildSaverContext contexto;
-
-
-        public  void Adicionar(Usuario u)
-        {
-            contexto.Usuarios.Add(u);
-            contexto.SaveChanges();
+            using (WildSaverContext contexto = new WildSaverContext())
+            {
+                contexto.Usuarios.Add(u);
+                contexto.SaveChanges();
+            }
         }
 
-        public  void Atualizar(Usuario u)
+        public void Atualizar(Usuario u)
         {
-            contexto.Update(u);
-            contexto.SaveChanges();
-
+            using (WildSaverContext contexto = new WildSaverContext())
+            {
+                contexto.Update(u);
+                contexto.SaveChanges();
+            }
         }
 
-        public  void Dispose()
+        public IList<Usuario> Lista()
         {
-            contexto.Dispose();
+            using (WildSaverContext contexto = new WildSaverContext())
+            {
+                return contexto.Usuarios.ToList();
+            }
         }
 
-        public  IList<Usuario> Lista()
+        public void Remover(Usuario u)
         {
-            return contexto.Usuarios.ToList();
+            using (WildSaverContext contexto = new WildSaverContext())
+            {
+                contexto.Usuarios.Remove(u);
+                contexto.SaveChanges();
+            }
         }
 
-        public  void Remover(Usuario u)
-        {
-            contexto.Usuarios.Remove(u);
-            contexto.SaveChanges();
-
-        }
-        public  Usuario BuscarUsuarioSenha(Usuario u)
+        public Usuario BuscarUsuarioSenha(Usuario u)
         {
 
-            using (contexto)
+            using (WildSaverContext contexto = new WildSaverContext())
             {
                 return contexto.Usuarios.FirstOrDefault(usuario => usuario.Login == u.Login && usuario.Senha == u.Senha);
 
             }
         }
-        public  int ExisteLogin (string login)
+
+        public int ExisteLogin(string login)
         {
 
-            using (contexto)
+            using (WildSaverContext contexto = new WildSaverContext())
             {
-                return contexto.Usuarios.Where(usuario => usuario.Login == login).Count(); 
-
+                return contexto.Usuarios.Where(usuario => usuario.Login == login).Count();
             }
         }
     }

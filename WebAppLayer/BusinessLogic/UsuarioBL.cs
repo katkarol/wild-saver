@@ -14,7 +14,7 @@ namespace WebAppLayer.BusinessLogic
 
         public UsuarioBL( )
         {
-            this.usuarioDAL = new UsuarioDAL();
+            usuarioDAL = new UsuarioDAL();
         }
 
         public  void AdicionarConta(Usuario usuario)

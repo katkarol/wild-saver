@@ -10,10 +10,8 @@ namespace WebAppLayer.Models
     {
         public int ID { get; set; }
         [Required(ErrorMessage = "O Número Residencial deve ser informado")]
-
         public string Numero { get; set; }
         [Required(ErrorMessage = "A rua deve ser informada")]
-
         public string Rua { get; set; }
         [Required (ErrorMessage = "O bairro deve ser informado")]
         public string Bairro { get; set; }

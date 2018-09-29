@@ -327,6 +327,10 @@
     <Compile Include="Migrations\20180926144519_noticias.designer.cs">
       <DependentUpon>20180926144519_noticias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180929034617_EnderecoNumero.cs" />
+    <Compile Include="Migrations\20180929034617_EnderecoNumero.designer.cs">
+      <DependentUpon>20180929034617_EnderecoNumero.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\WildSaverContextModelSnapshot.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\AnimalRegiao.cs" />
@@ -345,6 +349,7 @@
     <Compile Include="Models\Regiao.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

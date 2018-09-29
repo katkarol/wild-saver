@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using WebAppLayer.Models;
+using WebAppLayer.Util;
 
 namespace WebAppLayer.DAL
 {
@@ -47,7 +48,7 @@ namespace WebAppLayer.DAL
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder
-                    .UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=WildSaverDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                    .UseSqlServer(Constants.WildSaverDbConnectionString);
             }
         }
 
