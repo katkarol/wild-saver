@@ -17,22 +17,12 @@ namespace WebAppLayer.Filtros
         {
             papelUsuario = HttpContext.Current.Session["PAPELUSUARIO"];
 
-            if (papelUsuario == null || (PapelUsuario) papelUsuario == PapelUsuario.Usuario)
-            {
-                return true;
-
-            }
-            return false;
+            return papelUsuario == null || (PapelUsuario)papelUsuario == PapelUsuario.Usuario;
         }
         public static bool VerificarFuncionario()
         {
 
-            if (papelUsuario != null &&(PapelUsuario)papelUsuario != PapelUsuario.Usuario)
-            {
-                return true;
-
-            }
-            return false;
+            return papelUsuario != null && (PapelUsuario)papelUsuario != PapelUsuario.Usuario;
 
         }
     }

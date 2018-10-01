@@ -30,5 +30,9 @@ namespace WebAppLayer.BusinessLogic
             denunciaDAL.Adicionar(denuncia);
 
         }
+        public IList<Denuncia> Lista()
+        {
+            return denunciaDAL.Lista();
+        }
     }
 }

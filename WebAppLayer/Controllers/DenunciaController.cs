@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using WebAppLayer.DAL;
 using WebAppLayer.Models;
 using WebAppLayer.Filtros;
+using WebAppLayer.BusinessLogic;
 
 namespace WebAppLayer.Controllers
 {
@@ -25,6 +26,7 @@ namespace WebAppLayer.Controllers
         }
         
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Cadastrar(Denuncia denuncia)
         {
             try
@@ -39,5 +41,14 @@ namespace WebAppLayer.Controllers
                 return View(denuncia);
             }
         } 
+        [AutorizacaoFuncionarioFilter]
+        public ActionResult Vizualizar()
+        {
+            DenunciaBL denunciaBL = new DenunciaBL();
+            IList<Denuncia> denuncias = denunciaBL.Lista();
+
+            return View(denuncias);
+        }
+
     }
 }

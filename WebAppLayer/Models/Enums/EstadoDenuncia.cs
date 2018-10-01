@@ -8,7 +8,7 @@ namespace WebAppLayer.Models.Enums
     public enum EstadoDenuncia
     {
         Aberto,
-        EmAndamento,
+        Andamento,
         Atendida,
         Arquivada,
         Cancelada

@@ -246,6 +246,7 @@
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAL\AnimalDAL.cs" />
     <Compile Include="DAL\ClasseDAL.cs" />
+    <Compile Include="DAL\DenunciaAnimalDAL.cs" />
     <Compile Include="DAL\DenunciaDAL.cs" />
     <Compile Include="DAL\EnderecoDAL.cs" />
     <Compile Include="DAL\FamiliaDAL.cs" />

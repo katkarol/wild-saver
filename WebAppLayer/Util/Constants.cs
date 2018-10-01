@@ -7,6 +7,6 @@ namespace WebAppLayer.Util
 {
     public static class Constants
     {
-        public static string WildSaverDbConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Tyler Brito\\Documents\\WildSaverDb.mdf\";Integrated Security=True;Connect Timeout=30";
+        public static string WildSaverDbConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=WildSaverDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
     }
 }
