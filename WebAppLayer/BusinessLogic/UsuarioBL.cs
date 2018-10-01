@@ -63,5 +63,11 @@ namespace WebAppLayer.BusinessLogic
             HttpContext.Current.Session["USUARIO"] = usuario.Login;
             HttpContext.Current.Session["PAPELUSUARIO"] = usuario.PapelUsuario;
         }
+        public void Sair()
+        {
+            HttpContext.Current.Session["USUARIO"] = null;
+            HttpContext.Current.Session["PAPELUSUARIO"] = null;
+        }
+       
     }
 }

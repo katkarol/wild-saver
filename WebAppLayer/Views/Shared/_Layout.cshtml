@@ -40,9 +40,15 @@
                         <li>@Html.ActionLink("Animal", "Cadastrar", "Animal")</li>
                     }
 
-
-                    <li>@Html.ActionLink("Login", "Login", "Usuario")</li>
-                    <li>@Html.ActionLink("Criar Conta", "CriarConta", "Usuario")</li>
+                    @if (Mudanca_Navbar.Logado())
+                    {
+                        <li>@Html.ActionLink("Sair", "Sair", "Usuario")</li>
+                    }
+                    @if (!Mudanca_Navbar.Logado())
+                    {
+                        <li>@Html.ActionLink("Login", "Login", "Usuario")</li>
+                        <li>@Html.ActionLink("Criar Conta", "CriarConta", "Usuario")</li>
+                    }
 
                 </ul>
             </div>

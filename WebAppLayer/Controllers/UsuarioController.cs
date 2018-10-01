@@ -95,7 +95,12 @@ namespace WebAppLayer.Controllers
         {
             return RedirectToAction("Login", "Usuario");
         }
-
+        public ActionResult Sair()
+        {
+            UsuarioBL usuarioBL = new UsuarioBL();
+            usuarioBL.Sair();
+            return RedirectToAction("Index", "Home");
+        }
 
     }
 }

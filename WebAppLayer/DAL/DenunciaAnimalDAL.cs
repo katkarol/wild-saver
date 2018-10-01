@@ -17,7 +17,16 @@ namespace WebAppLayer.DAL
 
         public void Adicionar(DenunciaAnimal d)
         {
-            contexto.Denuncias.Add(d.);
+            contexto.DenunciaAnimal.Add(d);
+            contexto.SaveChanges();
+        }
+
+        public void AdicionarAnimal(Denuncia d, Animal a)
+        {
+            var denunciaAnimal = new DenunciaAnimal();
+            denunciaAnimal.Animal = a;
+            denunciaAnimal.Denuncia = d;
+            contexto.DenunciaAnimal.Add(denunciaAnimal);
             contexto.SaveChanges();
         }
 
@@ -35,12 +44,19 @@ namespace WebAppLayer.DAL
 
         public IList<DenunciaAnimal> Lista()
         {
-            return contexto..ToList();
+            return contexto.DenunciaAnimal.ToList();
         }
-
+        public IList<DenunciaAnimal> Lista(Denuncia d)
+        {
+            return contexto.DenunciaAnimal.Where(x => x.Denuncia == d).ToList();
+        }
+        public IList<Animal> Lista2(Denuncia d)
+        {
+            return contexto.DenunciaAnimal.Where(x => x.Denuncia == d).Select(x => x.Animal).ToList();
+        }
         public void Remover(DenunciaAnimal d)
         {
-            contexto.Denuncias.Remove(d);
+            contexto.DenunciaAnimal.Remove(d);
             contexto.SaveChanges();
 
         }

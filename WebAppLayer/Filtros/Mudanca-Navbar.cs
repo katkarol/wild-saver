@@ -9,9 +9,6 @@ namespace WebAppLayer.Filtros
 {
     public class Mudanca_Navbar
     {
-        public Mudanca_Navbar()
-        {
-        }
         private static object papelUsuario;
         public static bool VerificarUsuario()
         {
@@ -24,6 +21,11 @@ namespace WebAppLayer.Filtros
 
             return papelUsuario != null && (PapelUsuario)papelUsuario != PapelUsuario.Usuario;
 
+        }
+
+        public static bool Logado()
+        {
+            return papelUsuario != null;
         }
     }
 }
